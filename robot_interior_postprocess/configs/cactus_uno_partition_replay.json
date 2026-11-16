@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "parts": [
+    {
+      "part_id": "BODY",
+      "ranked_candidate_ids": [
+        "BODY:n1:f0.50",
+        "BODY:n0:f0.50",
+        "BODY:n1:f0.35",
+        "BODY:n0:f0.35",
+        "BODY:n2:f0.50"
+      ],
+      "rationale": "Lateral clamshell openings rank ahead of an end cover because they expose the motor_base working region without requiring work deep inside the broad foot. The z-normal option is a fallback that may preserve more of the surrounding rim but offers less direct access. A seam through the motor envelope is not a proposal to divide the motor.",
+      "assembly_notes": [
+        "Provisionally prepare the BODY-side motor_base interface and any required output connection while the BODY halves are open; establish which motor side belongs to BODY before choosing the connection order.",
+        "Provisionally close the BODY only after checking that its fastening remains externally accessible when base is attached."
+      ],
+      "unknowns": [
+        "Which motor_base interfaces carry stator and output loads, and their actual mounting geometry",
+        "Bearing and rim load paths, output clearance, and externally accessible closure-fastener locations"
+      ]
+    },
+    {
+      "part_id": "base",
+      "ranked_candidate_ids": [
+        "base:n2:f0.65",
+        "base:n1:f0.65",
+        "base:n2:f0.50",
+        "base:n0:f0.65",
+        "base:n0:f0.35",
+        "base:n1:f0.35"
+      ],
+      "rationale": "Explicit deterministic test ranking for PCB-normal assembly: try the generated upper z split first so the Uno can land on mounting-hole bosses. This rank was manually revised from a saved proposal for testing; it is not a new model response.",
+      "assembly_notes": [
+        "Install registered PCBs along their declared normal before closing the upper cap. Other joint and global tasks remain pending."
+      ],
+      "unknowns": [
+        "Actual motor stator/output assignments, bearing seats and mounting interfaces at all three joints",
+        "Physical component retention, connector directions, support-template fit and wire-tube clearances",
+        "Whether either half provides tool access and adequate load paths without cutting an indivisible support; a local hatch or detachable carrier may be needed in a future design"
+      ]
+    },
+    {
+      "part_id": "r_arm",
+      "ranked_candidate_ids": [
+        "r_arm:n1:f0.50",
+        "r_arm:n2:f0.35",
+        "r_arm:n1:f0.35",
+        "r_arm:n2:f0.50",
+        "r_arm:n0:f0.65"
+      ],
+      "rationale": "A longitudinal y-normal opening exposes the proximal motor region along the limb rather than making it the bottom of an end-access cup. The z-normal alternatives provide another approach to that region. The x-normal option is an end-cover fallback close to the motor envelope, subject to retaining the joint collar and its load path.",
+      "assembly_notes": [
+        "Provisionally prepare the arm-side motor_r_arm interface with the limb open; coordinate its output connection with the base-side interface before closing either link.",
+        "Provisionally verify that limb closure fasteners remain reachable after attachment to base."
+      ],
+      "unknowns": [
+        "Motor retention, bearing and collar geometry, and stator/output allocation between r_arm and base",
+        "Limb structural load path, joint motion clearance, wire routing at the seam and fastener access"
+      ]
+    },
+    {
+      "part_id": "l_arm",
+      "ranked_candidate_ids": [
+        "l_arm:n1:f0.50",
+        "l_arm:n2:f0.35",
+        "l_arm:n1:f0.35",
+        "l_arm:n2:f0.50",
+        "l_arm:n0:f0.35"
+      ],
+      "rationale": "The longitudinal y-normal opening offers direct access along the limb to the proximal motor region. The z-normal alternatives test a different approach without relying solely on a deep end opening. The x-normal option places an end seam beyond the motor envelope but must preserve the proximal joint interface.",
+      "assembly_notes": [
+        "Provisionally prepare the arm-side motor_l_arm interface with the limb open; coordinate the output connection and wiring with the open base.",
+        "Provisionally check external access to limb closure fasteners in the connected assembly."
+      ],
+      "unknowns": [
+        "Motor retention, bearing and collar geometry, and stator/output allocation between l_arm and base",
+        "Limb structural load path, joint motion clearance, wire routing at the seam and fastener access"
+      ]
+    }
+  ],
+  "unknowns": [
+    "Motor cylinders and electronics are planning envelopes, not verified hardware CAD; geometry and support feasibility remain unverified.",
+    "Actual mounting holes, screw and connector positions, tool and hand clearance, strength, and the full motion envelope are unavailable.",
+    "Front and gravity directions are unknown; no ranked seam is a manufacturing-ready assembly plan.",
+    "The prototype permits only planar two-piece splits. If those cannot provide assembly and service access while preserving interfaces, local hatches, multi-piece cuts or detachable carriers require a future design.",
+    "Base ranking explicitly revised for the Uno mounting test. Source is a deterministic test proposal, not a live model response."
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "models": {
+    "arduino_uno_r3": {
+      "source": {
+        "component": "arduino_uno_r3",
+        "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Arduino/Arduino%20UNO/Arduino%20UNO.FCStd",
+        "license": "CC-BY-3.0",
+        "sha256": "aca28665fbaed05a1e2a2a898821982b77fd43353303d7b40e0816641e8d46e2",
+        "bytes": 8308664,
+        "downloaded_file": "source/arduino_uno_r3.FCStd"
+      },
+      "file": "arduino_uno_r3.ply",
+      "sha256": "62f019c1b3160ed4edcfe9b2ad3d8ec2f672c0274f31d41f6028ffda354b6c3e",
+      "converted_source_sha256": "e6188cdc2f0d6f002672bb5a72372d40efa59287a12ecc655f4457cabf0a0d57",
+      "source_faces": 333006,
+      "preview_faces": 68447,
+      "source_connected_parts": 782,
+      "preview_connected_parts": 782,
+      "interface_from_mesh": [
+        [
+          0,
+          1,
+          0,
+          33.3817419052124
+        ],
+        [
+          -1,
+          0,
+          0,
+          26.67
+        ],
+        [
+          0,
+          0,
+          1,
+          5.365158462734666
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "scale": 1,
+      "omitted_source_objects": [
+        {
+          "object": "LMV358IDGKR_001",
+          "shape": "PartShape3.brp",
+          "error": "Exception('')"
+        }
+      ],
+      "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+    },
+    "regulator_d24v50f5": {
+      "source": {
+        "component": "regulator_d24v50f5",
+        "url": "https://www.pololu.com/file/0J1437/d24v50f5-step-down-voltage-regulator.step",
+        "license": "Manufacturer download; redistribution terms not established",
+        "sha256": "1ae491b0447280613943202f74a5f2e6c53b0e6962b078a7f263601dbd28f8a9",
+        "bytes": 4783952,
+        "downloaded_file": "source/regulator_d24v50f5.step"
+      },
+      "file": "regulator_d24v50f5.ply",
+      "sha256": "03c488ec90a3492f6f688c91a915d8fae0333e2135a7b2b8c80365861b366f8c",
+      "converted_source_sha256": "9adbcb47711ba7dd50ae792e8b82bf74e78909697f2db77a7a8c46897fe3f6ec",
+      "source_faces": 21322,
+      "preview_faces": 16000,
+      "source_connected_parts": 1,
+      "preview_connected_parts": 1,
+      "interface_from_mesh": [
+        [
+          1,
+          0,
+          0,
+          8.89
+        ],
+        [
+          0,
+          1,
+          0,
+          10.16
+        ],
+        [
+          0,
+          0,
+          1,
+          3.2874
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "scale": 1,
+      "omitted_source_objects": [],
+      "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+    },
+    "battery_holder_8aa": {
+      "source": {
+        "component": "battery_holder_8aa",
+        "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/875%208x%20AA%20Battery%20Holder/875%208xAA%20Battery%20Holder.step",
+        "license": "MIT",
+        "sha256": "07302aedfb19e90dd68498b622417e2123a8062569850105eb4c6720659e9600",
+        "bytes": 31258,
+        "downloaded_file": "source/battery_holder_8aa.step"
+      },
+      "file": "battery_holder_8aa.ply",
+      "sha256": "10f719a8a6a5f15b13f229141e2ab9247614e276af28c190d719649cbd76b75b",
+      "converted_source_sha256": "bf7e7b23c49495aff665eeebfd88dbf3bc0354750ae8299ce71aca2e9c162036",
+      "source_faces": 254796,
+      "preview_faces": 16000,
+      "source_connected_parts": 1,
+      "preview_connected_parts": 1,
+      "interface_from_mesh": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          35.5
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "scale": 1,
+      "omitted_source_objects": [],
+      "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+    },
+    "slide_switch": {
+      "source": {
+        "component": "slide_switch",
+        "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/805%20slide%20switch/805%20slide%20switch.step",
+        "license": "MIT",
+        "sha256": "192359d794292afb0ccaab33378a2671377e973f2e7fa6e93527f8b6fa5d2a4c",
+        "bytes": 22814,
+        "downloaded_file": "source/slide_switch.step"
+      },
+      "file": "slide_switch.ply",
+      "sha256": "ed4d0992cd0680dd893ca574512fb12b05ab42f6742a281205314c913af6acf5",
+      "converted_source_sha256": "9ab16ac8c9d0c5390e7d255148d42d96d9eeaf4aedd3b8d9363e875d93a990ac",
+      "source_faces": 550,
+      "preview_faces": 550,
+      "source_connected_parts": 1,
+      "preview_connected_parts": 1,
+      "interface_from_mesh": [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "scale": 1,
+      "omitted_source_objects": [],
+      "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+    }
+  },
+  "note": "Reference appearance only; not planning geometry"
+}

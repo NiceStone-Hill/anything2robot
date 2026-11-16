@@ -1,0 +1,94 @@
+{
+  "display_name": "Custom dog five joint test",
+  "layout_constraints": {
+    "mode": "llm"
+  },
+  "design_result": "result/custom_dog_test/dog_20261101-204826/result_round1",
+  "manufacturing_result": "result/custom_dog_manufacturing",
+  "circuit_directory": "data/custom_dog/circuit",
+  "voxel_tool_source": "/home/qinxuan/projects/voxel_tool/src",
+  "output": "robot_interior_postprocess/outputs/custom_dog_layout",
+  "pitch_mm": 3.0,
+  "wall_mm": 3.0,
+  "mount_support_mm": 6.0,
+  "motor_clearance_mm": 3.0,
+  "component_clearance_mm": 3.0,
+  "wire_radius_mm": 1.0,
+  "placement_part": "BODY",
+  "motor_mapping": {
+    "SERVO2": "motor_HEAD",
+    "SERVO1": "motor_L_ARM",
+    "SERVO3": "motor_R_ARM",
+    "SERVO4": "motor_L_LEG",
+    "SERVO5": "motor_R_LEG"
+  },
+  "motor_model_mapping": {
+    "motor_HEAD": "MG4005V2",
+    "motor_L_ARM": "MG4005V2",
+    "motor_R_ARM": "MG4005V2",
+    "motor_L_LEG": "DM6006",
+    "motor_R_LEG": "DM6006"
+  },
+  "components": [
+    {
+      "id": "U1",
+      "name": "Arduino Uno R3",
+      "size_mm": [
+        74,
+        58,
+        24
+      ],
+      "color": [
+        0.1,
+        0.6,
+        0.8
+      ],
+      "accuracy": "Conservative board + connector proxy; verify physical board"
+    },
+    {
+      "id": "BATTERY",
+      "name": "BATTERY | 9.6 V NiMH (8 AA + holder)",
+      "size_mm": [
+        132,
+        76,
+        32
+      ],
+      "color": [
+        0.3,
+        0.8,
+        0.3
+      ],
+      "accuracy": "Envelope covers candidate Adafruit 875 holder CAD (127 x 71 x 19 mm) with allowance; cells, leads and installation still require verification"
+    },
+    {
+      "id": "REGULATOR",
+      "name": "REGULATOR | D24V50F5 5 V output",
+      "size_mm": [
+        26,
+        24,
+        14
+      ],
+      "color": [
+        0.6,
+        0.3,
+        0.9
+      ],
+      "accuracy": "D24V50F5 envelope with connector allowance"
+    },
+    {
+      "id": "S1",
+      "name": "Power switch",
+      "size_mm": [
+        16,
+        10,
+        12
+      ],
+      "color": [
+        0.8,
+        0.4,
+        0.1
+      ],
+      "accuracy": "Provisional switch envelope; external actuator access pending"
+    }
+  ]
+}

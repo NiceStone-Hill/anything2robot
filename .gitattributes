@@ -1,0 +1,12 @@
+# Preserve reference CAD bytes and avoid enormous textual geometry diffs.
+*.step binary
+*.stp binary
+*.stl binary
+*.ply binary
+*.glb binary
+*.npz binary
+*.mp4 binary
+robot_design_studio/assets/** -whitespace
+robot_design_studio/catalog/assets/** -whitespace
+robot_interior_postprocess/assets/** -whitespace
+robot_interior_postprocess/hardware_catalog/sources/** -whitespace

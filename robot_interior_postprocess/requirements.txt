@@ -1,0 +1,11 @@
+numpy>=2.0
+scipy>=1.13
+trimesh>=4.4
+manifold3d>=3.5
+scikit-image>=0.25
+rtree>=1.4
+pytest>=8.0
+
+# Optional: only needed to convert STEP/FreeCAD source assets, not to view HTML.
+gmsh==4.13.1
+fast-simplification==0.1.13

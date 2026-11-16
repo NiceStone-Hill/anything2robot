@@ -1,0 +1,37 @@
+{
+  "assets": [
+    {
+      "component": "arduino_uno_r3",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Arduino/Arduino%20UNO/Arduino%20UNO.FCStd",
+      "license": "CC-BY-3.0",
+      "sha256": "aca28665fbaed05a1e2a2a898821982b77fd43353303d7b40e0816641e8d46e2",
+      "bytes": 8308664,
+      "downloaded_file": "source/arduino_uno_r3.FCStd"
+    },
+    {
+      "component": "battery_holder_8aa",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/875%208x%20AA%20Battery%20Holder/875%208xAA%20Battery%20Holder.step",
+      "license": "MIT",
+      "sha256": "07302aedfb19e90dd68498b622417e2123a8062569850105eb4c6720659e9600",
+      "bytes": 31258,
+      "downloaded_file": "source/battery_holder_8aa.step"
+    },
+    {
+      "component": "slide_switch",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/805%20slide%20switch/805%20slide%20switch.step",
+      "license": "MIT",
+      "sha256": "192359d794292afb0ccaab33378a2671377e973f2e7fa6e93527f8b6fa5d2a4c",
+      "bytes": 22814,
+      "downloaded_file": "source/slide_switch.step"
+    },
+    {
+      "component": "regulator_d24v50f5",
+      "url": "https://www.pololu.com/file/0J1437/d24v50f5-step-down-voltage-regulator.step",
+      "license": "Manufacturer download; redistribution terms not established",
+      "sha256": "1ae491b0447280613943202f74a5f2e6c53b0e6962b078a7f263601dbd28f8a9",
+      "bytes": 4783952,
+      "downloaded_file": "source/regulator_d24v50f5.step"
+    }
+  ],
+  "purpose": "Downloaded CAD for visual presentation; physical planning geometry unchanged"
+}

@@ -1,0 +1,9 @@
+numpy==2.4.6
+scipy==1.17.1
+trimesh==5.1.1
+manifold3d==3.5.4
+scikit-image==0.26.0
+rtree==1.4.1
+pytest==9.1.1
+gmsh==4.13.1
+fast-simplification==0.1.13

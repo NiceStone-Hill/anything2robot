@@ -1,0 +1,167 @@
+{
+  "models": [
+    {
+      "id": "arduino_uno_r3",
+      "name": "Arduino Uno",
+      "source": "arduino_uno_r3/arduino_uno_r3.FCStd",
+      "source_sha256": "aca28665fbaed05a1e2a2a898821982b77fd43353303d7b40e0816641e8d46e2",
+      "mesh": "converted/arduino_uno_r3_preview.ply",
+      "extents_mm": [
+        53.34,
+        70.3965161895752,
+        15.1999999995795
+      ],
+      "faces": 333006,
+      "source_center_mm": [
+        26.67,
+        33.3817419052124,
+        5.365158462734666
+      ],
+      "display_color": [
+        0.1,
+        0.5,
+        0.7
+      ],
+      "omitted_source_objects": [
+        {
+          "object": "LMV358IDGKR_001",
+          "shape": "PartShape3.brp",
+          "error": "Exception('')"
+        }
+      ],
+      "full_mesh": "converted/arduino_uno_r3.ply",
+      "preview_faces": 40000,
+      "preview_extents_mm": [
+        53.34000015258789,
+        70.39651489257812,
+        15.20920101729538
+      ]
+    },
+    {
+      "id": "battery_holder_8aa",
+      "name": "8 AA holder (candidate)",
+      "source": "battery_holder_8aa/battery_holder_8aa.step",
+      "source_sha256": "07302aedfb19e90dd68498b622417e2123a8062569850105eb4c6720659e9600",
+      "mesh": "converted/battery_holder_8aa_preview.ply",
+      "extents_mm": [
+        127.0,
+        71.0,
+        19.0
+      ],
+      "faces": 254796,
+      "source_center_mm": [
+        63.5,
+        35.5,
+        9.5
+      ],
+      "display_color": [
+        0.18,
+        0.2,
+        0.24
+      ],
+      "omitted_source_objects": [],
+      "full_mesh": "converted/battery_holder_8aa.ply",
+      "preview_faces": 40000,
+      "preview_extents_mm": [
+        127.00126450062896,
+        71.00018749653489,
+        19.000539198093783
+      ]
+    },
+    {
+      "id": "regulator_d24v50f5",
+      "name": "Pololu D24V50F5",
+      "source": "regulator_d24v50f5/d24v50f5.step",
+      "source_sha256": "1ae491b0447280613943202f74a5f2e6c53b0e6962b078a7f263601dbd28f8a9",
+      "mesh": "converted/regulator_d24v50f5_preview.ply",
+      "extents_mm": [
+        17.779999999999998,
+        20.32,
+        8.774799999999999
+      ],
+      "faces": 21322,
+      "source_center_mm": [
+        8.889999999999999,
+        10.16,
+        3.2874
+      ],
+      "display_color": [
+        0.15,
+        0.55,
+        0.25
+      ],
+      "omitted_source_objects": [],
+      "full_mesh": "converted/regulator_d24v50f5.ply",
+      "preview_faces": 21322,
+      "preview_extents_mm": [
+        17.780000686645508,
+        20.31999969482422,
+        8.774800300598145
+      ]
+    },
+    {
+      "id": "slide_switch",
+      "name": "SPDT switch (candidate)",
+      "source": "slide_switch/slide_switch.step",
+      "source_sha256": "192359d794292afb0ccaab33378a2671377e973f2e7fa6e93527f8b6fa5d2a4c",
+      "mesh": "converted/slide_switch_preview.ply",
+      "extents_mm": [
+        11.7,
+        4.0,
+        8.0
+      ],
+      "faces": 550,
+      "source_center_mm": [
+        5.85,
+        -1.9999999999999998,
+        -2.3
+      ],
+      "display_color": [
+        0.35,
+        0.4,
+        0.46
+      ],
+      "omitted_source_objects": [],
+      "full_mesh": "converted/slide_switch.ply",
+      "preview_faces": 550,
+      "preview_extents_mm": [
+        11.699999809265137,
+        4.0,
+        8.0
+      ]
+    },
+    {
+      "id": "sg90_servo",
+      "name": "SG90 (simulator reference)",
+      "source": "sg90_servo/sg90_servo.stl",
+      "source_sha256": "5bc7ed78a7a10e0507475fe320c9ab9093ae5f6904d7ac627ffab4f9416f665d",
+      "mesh": "converted/sg90_servo_preview.ply",
+      "extents_mm": [
+        11.800000190734863,
+        32.40000057220459,
+        29.899999618530273
+      ],
+      "faces": 2326,
+      "source_center_mm": [
+        0.0,
+        11.500000476837158,
+        14.949999809265137
+      ],
+      "display_color": [
+        0.15,
+        0.35,
+        0.85
+      ],
+      "omitted_source_objects": [],
+      "full_mesh": "converted/sg90_servo.ply",
+      "preview_faces": 2326,
+      "preview_extents_mm": [
+        11.800000190734863,
+        32.400001525878906,
+        29.899999618530273
+      ]
+    }
+  ],
+  "converter": "gmsh 4.13.1",
+  "note": "Source CAD geometry, centered without rescaling. Colors are illustrative. Not installed hardware certification."
+}

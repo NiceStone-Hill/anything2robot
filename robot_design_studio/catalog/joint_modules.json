@@ -1,0 +1,152 @@
+{
+  "revision": "joint-modules-0.8.2-stock-horn-slots",
+  "units": "mm",
+  "manufacturing_verified": false,
+  "design": {
+    "wall": 3,
+    "fit_clearance": 0.4,
+    "beam_radius": 3,
+    "m3_clearance_radius": 1.7,
+    "m2_clearance_radius": 1.2,
+    "shell_requested_wall": 3,
+    "lid_gap": 0.5,
+    "lid_boss_radius": 5,
+    "lid_boss_depth": 10,
+    "lid_nut_radius": 3.3,
+    "lid_nut_depth": 3,
+    "lid_min_fasteners": 3,
+    "max_bridge_span_mm": 35,
+    "joint_gap_mm": 0.4,
+    "root_service_radii_mm": [
+      36,
+      24
+    ],
+    "moving_service_radii_mm": [
+      18,
+      16
+    ],
+    "service_opening_evidence": "engineering_assumption_adjustable_not_verified_component_access",
+    "module_max_outside_fraction": 0.03,
+    "open_mount_max_protrusion_mm": 45,
+    "open_mount_min_contact_mm3": 4,
+    "open_mount_min_core_radius_mm": 1.5,
+    "module_outside_warning_fraction": 0.01,
+    "module_outside_evidence": "preview_engineering_policy_not_physical_fit_or_manufacturing_acceptance"
+  },
+  "templates": {
+    "sg90_digital_towerpro": {
+      "branch": "text2robot_rectangular",
+      "mounting_style": "open_cradle",
+      "ear_contact_clearance_mm": 0.05,
+      "evidence": "engineering_assumption",
+      "body": [
+        23,
+        12.2,
+        29
+      ],
+      "shaft_x_offset": 9,
+      "shaft_top": 6,
+      "horn_radius": 9,
+      "horn_thickness": 2,
+      "unknown": [
+        "第三方 SG90 CAD 与实物 Digital 版本的一致性",
+        "安装耳槽孔及轴偏置实测配准",
+        "候选 M1.6 螺丝、垫片、螺母规格与长度",
+        "配套舵盘、连续负载与打印配合",
+        "十字舵盘外形和孔距为候选，需按实物校核；不支持未经测量直接打印输出轴花键"
+      ],
+      "reference_cad": {
+        "file": "assets/sg90_reference/servo.stl",
+        "sha256": "5bc7ed78a7a10e0507475fe320c9ab9093ae5f6904d7ac627ffab4f9416f665d",
+        "url": "https://github.com/FreeCAD/FreeCAD-library/tree/be5e71491051cef75da46831b6fd77c6313cb497/Electrical%20Parts/Servos/SG-90",
+        "license": "CC-BY-3.0",
+        "evidence": "third_party_reference_not_verified_digital_variant",
+        "source_to_module_mm": [
+          [
+            0,
+            1,
+            0,
+            -16.6
+          ],
+          [
+            -1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            -29.9
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "ear_hole_centres_mm": [
+          [
+            -18.95,
+            0
+          ],
+          [
+            8.25,
+            0
+          ]
+        ],
+        "ear_seat_z_mm": -14,
+        "ear_top_z_mm": -11.5,
+        "slot_radius_mm": 1,
+        "actual_dimensions_mm": null
+      },
+      "horn_profile": {
+        "shape": "cross",
+        "arm_width_mm": 6.0,
+        "evidence": "engineering_assumption_not_measured",
+        "shaft_connection": "stock_horn_spline_and_original_center_screw",
+        "adaptor_slots": {
+          "radial_centres_mm": [
+            4.5,
+            6.5
+          ],
+          "shaft_radius_mm": 1.0,
+          "pilot_radius_mm": 0.6,
+          "screw_head_radius_mm": 2.1,
+          "evidence": "engineering_assumption_not_measured"
+        }
+      }
+    },
+    "mg4005v2_candidate": {
+      "branch": "anything2robot_round",
+      "evidence": "supplier_drawing_candidate",
+      "body_diameter": 53,
+      "body_depth": 26,
+      "output_diameter": 39.6,
+      "output_depth": 7.2,
+      "fixed_pcd": 48,
+      "fixed_holes": 6,
+      "fixed_thread": "M3",
+      "fixed_thread_depth": 3,
+      "output_pcd": 27,
+      "output_holes": 3,
+      "output_thread": "M3",
+      "output_thread_depth": 4,
+      "plate_thickness": 4,
+      "source": {
+        "file": "robot_interior_postprocess/interface_catalog/sources/mg4005_v2_installation.pdf",
+        "sha256": "a0e6b08e2be6901f042638ca8e85a22b1641dd23458b92b02ce18841a2786471",
+        "url": "https://robotopian.com/cdn/shop/files/lkmtech-mg4005-v2-motor-resource-01.pdf?v=12233720923804465128",
+        "scope": "安装图直接读取；非实验室实测。背面 6-M3 深3，PCD48；输出 3-M3 深4，PCD27。"
+      },
+      "unknown": [
+        "实际电机版本、孔位角向配准和轴向正反",
+        "图纸总深33.2mm与历史CAD33.4mm差异",
+        "连接器、线口和驱动协议版本",
+        "实际紧固件长度、扭矩、承载与打印材料"
+      ]
+    }
+  }
+}

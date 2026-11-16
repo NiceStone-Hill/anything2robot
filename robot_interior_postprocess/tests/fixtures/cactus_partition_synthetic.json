@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "parts": [
+    {
+      "part_id": "BODY",
+      "ranked_candidate_ids": ["BODY:n1:f0.50", "BODY:n0:f0.50", "BODY:n2:f0.50", "BODY:n1:f0.35", "BODY:n1:f0.65", "BODY:n0:f0.35"],
+      "rationale": "SYNTHETIC OFFLINE FIXTURE, NOT VLM OUTPUT: compare lateral clamshell and end-cover candidates.",
+      "assembly_notes": ["Synthetic local geometry test only."],
+      "unknowns": ["No model inference; real interfaces and assembly order unverified."]
+    },
+    {
+      "part_id": "base",
+      "ranked_candidate_ids": ["base:n1:f0.50", "base:n0:f0.50", "base:n2:f0.50", "base:n1:f0.35", "base:n1:f0.65", "base:n0:f0.35"],
+      "rationale": "SYNTHETIC OFFLINE FIXTURE, NOT VLM OUTPUT: compare openings for electronics and all three motor interfaces.",
+      "assembly_notes": ["Synthetic local geometry test only."],
+      "unknowns": ["No model inference; real interfaces and assembly order unverified."]
+    },
+    {
+      "part_id": "r_arm",
+      "ranked_candidate_ids": ["r_arm:n1:f0.50", "r_arm:n0:f0.50", "r_arm:n2:f0.50", "r_arm:n1:f0.35", "r_arm:n1:f0.65", "r_arm:n2:f0.35"],
+      "rationale": "SYNTHETIC OFFLINE FIXTURE, NOT VLM OUTPUT: test a motor-only moving link as well as electronics links.",
+      "assembly_notes": ["Synthetic local geometry test only."],
+      "unknowns": ["No model inference; real interfaces and assembly order unverified."]
+    },
+    {
+      "part_id": "l_arm",
+      "ranked_candidate_ids": ["l_arm:n1:f0.50", "l_arm:n0:f0.50", "l_arm:n2:f0.50", "l_arm:n1:f0.35", "l_arm:n1:f0.65", "l_arm:n2:f0.35"],
+      "rationale": "SYNTHETIC OFFLINE FIXTURE, NOT VLM OUTPUT: test a motor-only moving link as well as electronics links.",
+      "assembly_notes": ["Synthetic local geometry test only."],
+      "unknowns": ["No model inference; real interfaces and assembly order unverified."]
+    }
+  ],
+  "unknowns": ["This is a hand-authored offline test fixture, not a model response."]
+}

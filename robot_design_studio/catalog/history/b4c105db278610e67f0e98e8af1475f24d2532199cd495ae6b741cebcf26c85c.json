@@ -1,0 +1,1875 @@
+{
+  "schema_version": "1.0",
+  "revision": "2026-11-15.1",
+  "parts": [
+    {
+      "id": "pico2_unknown",
+      "revision": "1",
+      "name": "Raspberry Pi Pico 2 · 焊接状态待确认",
+      "category": "controller",
+      "manufacturer": "Raspberry Pi",
+      "product_revision": "Pico 2 / RP2350",
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "用户确认实验室已有 Pico 2；数量和焊接状态未知"
+      },
+      "sources": [
+        {
+          "url": "https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf",
+          "accessed": "2026-11-15",
+          "scope": "厂商公开资料，非实验室实测"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "pico2_unknown_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VSYS": {
+          "kind": "power_in",
+          "voltage_v": [
+            1.8,
+            5.5
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "39",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "3V3": {
+          "kind": "power_out",
+          "voltage_v": [
+            3.3,
+            3.3
+          ],
+          "functions": [],
+          "required": false,
+          "physical_pin": "36",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": 0.3,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向",
+          "current_evidence": "厂商建议外部负载小于 300 mA；仍依赖板内负载和 VSYS"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "3",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP0": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SDA"
+          ],
+          "required": false,
+          "physical_pin": "1",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP1": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SCL"
+          ],
+          "required": false,
+          "physical_pin": "2",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP2": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_A"
+          ],
+          "required": false,
+          "physical_pin": "4",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP3": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_B"
+          ],
+          "required": false,
+          "physical_pin": "5",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "Pico 输出电流预算依赖板内负载；不能直接为舵机供电",
+        "本版只开放经过登记的 GP0/GP1 I²C 与 GP2/GP3 PWM 资源"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      },
+      "assembly_state": "unknown"
+    },
+    {
+      "id": "pico2_bare",
+      "revision": "1",
+      "name": "Raspberry Pi Pico 2 · 裸板候选",
+      "category": "controller",
+      "manufacturer": "Raspberry Pi",
+      "product_revision": "Pico 2 / RP2350",
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "用户确认实验室已有 Pico 2；数量和焊接状态未知"
+      },
+      "sources": [
+        {
+          "url": "https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf",
+          "accessed": "2026-11-15",
+          "scope": "厂商公开资料，非实验室实测"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "pico2_bare_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VSYS": {
+          "kind": "power_in",
+          "voltage_v": [
+            1.8,
+            5.5
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "39",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "3V3": {
+          "kind": "power_out",
+          "voltage_v": [
+            3.3,
+            3.3
+          ],
+          "functions": [],
+          "required": false,
+          "physical_pin": "36",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": 0.3,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向",
+          "current_evidence": "厂商建议外部负载小于 300 mA；仍依赖板内负载和 VSYS"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "3",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP0": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SDA"
+          ],
+          "required": false,
+          "physical_pin": "1",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP1": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SCL"
+          ],
+          "required": false,
+          "physical_pin": "2",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP2": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_A"
+          ],
+          "required": false,
+          "physical_pin": "4",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP3": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_B"
+          ],
+          "required": false,
+          "physical_pin": "5",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "Pico 输出电流预算依赖板内负载；不能直接为舵机供电",
+        "本版只开放经过登记的 GP0/GP1 I²C 与 GP2/GP3 PWM 资源"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      },
+      "assembly_state": "bare"
+    },
+    {
+      "id": "pico2_straight",
+      "revision": "1",
+      "name": "Raspberry Pi Pico 2 · 直排针装配候选",
+      "category": "controller",
+      "manufacturer": "Raspberry Pi",
+      "product_revision": "Pico 2 / RP2350",
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "用户确认实验室已有 Pico 2；数量和焊接状态未知"
+      },
+      "sources": [
+        {
+          "url": "https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf",
+          "accessed": "2026-11-15",
+          "scope": "厂商公开资料，非实验室实测"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "pico2_straight_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VSYS": {
+          "kind": "power_in",
+          "voltage_v": [
+            1.8,
+            5.5
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "39",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "3V3": {
+          "kind": "power_out",
+          "voltage_v": [
+            3.3,
+            3.3
+          ],
+          "functions": [],
+          "required": false,
+          "physical_pin": "36",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": 0.3,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向",
+          "current_evidence": "厂商建议外部负载小于 300 mA；仍依赖板内负载和 VSYS"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "3",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP0": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SDA"
+          ],
+          "required": false,
+          "physical_pin": "1",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP1": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SCL"
+          ],
+          "required": false,
+          "physical_pin": "2",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP2": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_A"
+          ],
+          "required": false,
+          "physical_pin": "4",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP3": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_B"
+          ],
+          "required": false,
+          "physical_pin": "5",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [
+        {
+          "catalog_id": "header_straight",
+          "quantity": 2,
+          "reason": "装配版本需要登记两条排针和焊接验证"
+        }
+      ],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "Pico 输出电流预算依赖板内负载；不能直接为舵机供电",
+        "本版只开放经过登记的 GP0/GP1 I²C 与 GP2/GP3 PWM 资源"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      },
+      "assembly_state": "straight"
+    },
+    {
+      "id": "pico2_angled",
+      "revision": "1",
+      "name": "Raspberry Pi Pico 2 · 弯排针装配候选",
+      "category": "controller",
+      "manufacturer": "Raspberry Pi",
+      "product_revision": "Pico 2 / RP2350",
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "用户确认实验室已有 Pico 2；数量和焊接状态未知"
+      },
+      "sources": [
+        {
+          "url": "https://datasheets.raspberrypi.com/pico/pico-2-datasheet.pdf",
+          "accessed": "2026-11-15",
+          "scope": "厂商公开资料，非实验室实测"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "pico2_angled_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VSYS": {
+          "kind": "power_in",
+          "voltage_v": [
+            1.8,
+            5.5
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "39",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "3V3": {
+          "kind": "power_out",
+          "voltage_v": [
+            3.3,
+            3.3
+          ],
+          "functions": [],
+          "required": false,
+          "physical_pin": "36",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": 0.3,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向",
+          "current_evidence": "厂商建议外部负载小于 300 mA；仍依赖板内负载和 VSYS"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": "3",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP0": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SDA"
+          ],
+          "required": false,
+          "physical_pin": "1",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP1": {
+          "kind": "bus",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "I2C0_SCL"
+          ],
+          "required": false,
+          "physical_pin": "2",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP2": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_A"
+          ],
+          "required": false,
+          "physical_pin": "4",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GP3": {
+          "kind": "signal_out",
+          "voltage_v": [
+            0,
+            3.3
+          ],
+          "functions": [
+            "PWM1_B"
+          ],
+          "required": false,
+          "physical_pin": "5",
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [
+        {
+          "catalog_id": "header_angled",
+          "quantity": 2,
+          "reason": "装配版本需要登记两条排针和焊接验证"
+        }
+      ],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "Pico 输出电流预算依赖板内负载；不能直接为舵机供电",
+        "本版只开放经过登记的 GP0/GP1 I²C 与 GP2/GP3 PWM 资源"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      },
+      "assembly_state": "angled"
+    },
+    {
+      "id": "mpu6050_lab",
+      "revision": "1",
+      "name": "MPU6050 实验室模块 · 板卡版本待确认",
+      "category": "imu",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "用户确认实验室已有 MPU6050 模块；厂家、PCB 版本、数量未知"
+      },
+      "sources": [
+        {
+          "url": "https://product.tdk.com/en/search/sensor/mortion-inertial/imu/info?part_no=MPU-6050",
+          "accessed": "2026-11-15",
+          "scope": "芯片资料入口；本次旧 PDF 跳转不可访问，不能作为开发板供电和尺寸证据"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "mpu6050_lab_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [
+          104,
+          105
+        ],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VCC": {
+          "kind": "power_in",
+          "voltage_v": null,
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "SDA": {
+          "kind": "bus",
+          "voltage_v": null,
+          "functions": [
+            "I2C_SDA"
+          ],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "SCL": {
+          "kind": "bus",
+          "voltage_v": null,
+          "functions": [
+            "I2C_SCL"
+          ],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "模块 VCC 范围、稳压和 I²C 上拉电平未知；3.3 V 接线仅为待核实假设",
+        "AD0 状态及实际地址 0x68/0x69 待确认",
+        "端口标签是逻辑候选，未登记 PCB 排针次序；不能按裸芯片尺寸制造"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "sg90_digital_towerpro",
+      "revision": "1",
+      "name": "TowerPro SG90 Digital · 来源待核实",
+      "category": "actuator",
+      "manufacturer": "TowerPro",
+      "product_revision": "SG90 Digital（非模拟版）",
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [
+        {
+          "url": "https://towerpro.com.tw/product/sg90-7/",
+          "accessed": "2026-11-15",
+          "scope": "厂商公开资料，非实验室实测"
+        }
+      ],
+      "geometry": {
+        "units": "m",
+        "frame": "sg90_digital_towerpro_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": 0.009,
+          "evidence": "manufacturer",
+          "reason": "规格区 9g；不是实验室称重"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "VCC": {
+          "kind": "power_in",
+          "voltage_v": [
+            4.8,
+            4.8
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "PWM": {
+          "kind": "signal_in",
+          "voltage_v": null,
+          "functions": [
+            "PWM"
+          ],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [
+        {
+          "catalog_id": "supply_48_candidate",
+          "quantity": 1,
+          "reason": "独立舵机供电候选；不能从 Pico 3V3 取电"
+        }
+      ],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "仅按规格区 4.8 V 点值规划；允许范围、峰值电流及 3.3 V PWM 识别阈值待核验",
+        "无对外实际角度反馈；舵盘、紧固件、转角和负载未验证"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "st3215_12v_candidate",
+      "revision": "1",
+      "name": "Waveshare ST3215 12 V · TTL 候选",
+      "category": "actuator",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "st3215_12v_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "本阶段未核实全部电气参数，不开放自动接线；禁止混用 TTL / RS485 / CAN"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "mg4005v2_candidate",
+      "revision": "1",
+      "name": "MG4005V2 · 历史 CAD 候选",
+      "category": "actuator",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "mg4005v2_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "本阶段未核实全部电气参数，不开放自动接线；禁止混用 TTL / RS485 / CAN"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "supply_48_candidate",
+      "revision": "1",
+      "name": "4.8 V 稳压供电 · 待选实物",
+      "category": "power",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "supply_48_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "OUT": {
+          "kind": "power_out",
+          "voltage_v": [
+            4.8,
+            4.8
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "电压为设计目标，非实测；电流、极性、保护和接口均待确认"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "supply_5_candidate",
+      "revision": "1",
+      "name": "5 V 控制器供电 · 待选实物",
+      "category": "power",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "supply_5_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {
+        "OUT": {
+          "kind": "power_out",
+          "voltage_v": [
+            5,
+            5
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        },
+        "GND": {
+          "kind": "ground",
+          "voltage_v": [
+            0,
+            0
+          ],
+          "functions": [],
+          "required": true,
+          "physical_pin": null,
+          "position_m": null,
+          "exit_direction": null,
+          "connector_id": null,
+          "current_limit_a": null,
+          "physical_evidence": "待确认实物接头、焊接方式和出线方向"
+        }
+      },
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验",
+        "电压为设计目标，非实测；电流、极性、保护和接口均待确认"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "wire_candidate",
+      "revision": "1",
+      "name": "连接线 · 规格待选",
+      "category": "wire",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "wire_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "header_straight",
+      "revision": "1",
+      "name": "直排针 · 型号待选",
+      "category": "connector",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "header_straight_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "header_angled",
+      "revision": "1",
+      "name": "弯排针 · 型号待选",
+      "category": "connector",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "header_angled_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "splitter_candidate",
+      "revision": "1",
+      "name": "分线器 · 型号待选",
+      "category": "distribution",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "splitter_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "fastener_candidate",
+      "revision": "1",
+      "name": "紧固件 · 规格待选",
+      "category": "fastener",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "fastener_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    },
+    {
+      "id": "battery_holder_candidate",
+      "revision": "1",
+      "name": "电池盒 · 电池方案待选",
+      "category": "power",
+      "manufacturer": null,
+      "product_revision": null,
+      "status": "candidate",
+      "inventory": {
+        "quantity": null,
+        "evidence": "未清点；未知不等于零"
+      },
+      "sources": [],
+      "geometry": {
+        "units": "m",
+        "frame": "battery_holder_candidate_local",
+        "cad_asset": null,
+        "display_asset": null,
+        "collision_asset": null,
+        "dimensions_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "完整模块、接头与安装空间待实测"
+        },
+        "source_unit": null
+      },
+      "mounting": {
+        "holes": null,
+        "fasteners": null,
+        "tool_clearance_m": null,
+        "insertion_direction": null,
+        "removal_direction": null
+      },
+      "physical": {
+        "mass_kg": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "center_of_mass_m": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未测量"
+        },
+        "inertia_kg_m2": {
+          "value": null,
+          "evidence": "unknown",
+          "reason": "未估算"
+        }
+      },
+      "calibration": {
+        "zero_rad": null,
+        "direction": null,
+        "evidence": "未校准"
+      },
+      "electrical": {
+        "peak_current_a": null,
+        "current_evidence": "未确认同时动作/峰值需求",
+        "address_options": [],
+        "feedback_actual_angle": false
+      },
+      "ports": {},
+      "dependencies": [],
+      "pending": [
+        "实物型号、尺寸、安装、质量和连接器待核验"
+      ],
+      "verification": {
+        "geometry": "pending",
+        "assembly": "pending",
+        "load": "pending",
+        "physical": "pending"
+      }
+    }
+  ]
+}

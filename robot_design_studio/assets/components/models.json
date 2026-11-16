@@ -1,0 +1,234 @@
+{
+  "version": "component-cad-0.2-registered-mounts",
+  "models": [
+    {
+      "id": "pico2",
+      "name": "Raspberry Pi Pico 2 · official bare-board CAD",
+      "catalog_ids": [
+        "pico2_unknown",
+        "pico2_bare"
+      ],
+      "variant": "Pico 2 without headers",
+      "file": "model.ply",
+      "sha256": "a6e34167d71ecc469a4214702624c963a6c58bec844af1e18b38b9f07b2c4878",
+      "source_file": "source.step",
+      "source_sha256": "d49ada10d893cfcb07cb4abced0a0a0cadca4c4150f153d874268ca06171a24f",
+      "source_rotation": [
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "bottom_allowance_mm": 6.0,
+      "source_url": "https://pip.raspberrypi.com/categories/1005-raspberry-pi-pico-2",
+      "evidence": "manufacturer_reference_unmeasured",
+      "attribution_files": [
+        "LICENSE.txt"
+      ],
+      "physical_variant_verified": false,
+      "converter": "Gmsh 4.13.1 surface triangulation; no geometry rescaling",
+      "mounting": {
+        "frame": "source STEP coordinates, millimetres; normal +Z",
+        "source_sha256": "d49ada10d893cfcb07cb4abced0a0a0cadca4c4150f153d874268ca06171a24f",
+        "pcb_bottom_mm": 0.0,
+        "pcb_top_mm": 0.91,
+        "outline_mm": [
+          [
+            -10.5,
+            -25.5
+          ],
+          [
+            10.5,
+            25.5
+          ]
+        ],
+        "holes": [
+          {
+            "id": "H1",
+            "xy_mm": [
+              -5.7,
+              -23.5
+            ],
+            "diameter_mm": 2.1,
+            "step_surface": 7653
+          },
+          {
+            "id": "H2",
+            "xy_mm": [
+              5.7,
+              -23.5
+            ],
+            "diameter_mm": 2.1,
+            "step_surface": 7664
+          },
+          {
+            "id": "H3",
+            "xy_mm": [
+              -5.7,
+              23.5
+            ],
+            "diameter_mm": 2.1,
+            "step_surface": 7685
+          },
+          {
+            "id": "H4",
+            "xy_mm": [
+              5.7,
+              23.5
+            ],
+            "diameter_mm": 2.1,
+            "step_surface": 7709
+          }
+        ],
+        "process_status": "reference_cad_unmeasured",
+        "fastener": {
+          "thread": "M2",
+          "shaft_diameter_mm": 2.0,
+          "clearance_diameter_mm": 2.1,
+          "head_diameter_mm": 3.6,
+          "nut_circumradius_mm": 2.35,
+          "standoff_height_mm": 4.0,
+          "plate_thickness_mm": 2.0,
+          "candidate_length_mm": 8.0,
+          "actual_part_number": null,
+          "physical_fit_verified": false
+        }
+      }
+    },
+    {
+      "id": "mpu6050",
+      "name": "MPU6050 · GY-521 reference CAD",
+      "catalog_ids": [
+        "mpu6050_lab"
+      ],
+      "variant": "GY-521-style board, headers not fitted",
+      "file": "model.ply",
+      "sha256": "63d77d7b1010bc18efc166300b16b01c6bef11227a5eea10824f37da518b920e",
+      "source_file": "source.step",
+      "source_sha256": "551b12f12c7ae75f7f2bfa2f03c71f271d21d1de6e3f68d154598a8a2d60490e",
+      "source_rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "bottom_allowance_mm": 6.0,
+      "source_url": "https://github.com/usini/usini_kicad_sensors/blob/e2d03afffcb95ee2b2ff4183b6573658f2684229/usini_sensors.pretty/MPU_6050.step",
+      "evidence": "third_party_reference_variant_unconfirmed",
+      "attribution_files": [
+        "SOURCE_README.md",
+        "ATTRIBUTION.txt"
+      ],
+      "physical_variant_verified": false,
+      "converter": "Gmsh 4.13.1 surface triangulation; no geometry rescaling",
+      "mounting": {
+        "frame": "source STEP coordinates, millimetres; normal +Z",
+        "source_sha256": "551b12f12c7ae75f7f2bfa2f03c71f271d21d1de6e3f68d154598a8a2d60490e",
+        "pcb_bottom_mm": -1.5,
+        "pcb_top_mm": 0.0,
+        "outline_mm": [
+          [
+            -10.25,
+            -8
+          ],
+          [
+            10.25,
+            8
+          ]
+        ],
+        "holes": [
+          {
+            "id": "H1",
+            "xy_mm": [
+              -8,
+              5.75
+            ],
+            "diameter_mm": 3.0,
+            "step_surface": 196
+          },
+          {
+            "id": "H2",
+            "xy_mm": [
+              8,
+              5.75
+            ],
+            "diameter_mm": 3.0,
+            "step_surface": 216
+          }
+        ],
+        "process_status": "reference_cad_unmeasured",
+        "fastener": {
+          "thread": "M2.5",
+          "shaft_diameter_mm": 2.5,
+          "clearance_diameter_mm": 2.8,
+          "head_diameter_mm": 4.5,
+          "nut_circumradius_mm": 2.85,
+          "standoff_height_mm": 4.0,
+          "plate_thickness_mm": 2.0,
+          "candidate_length_mm": 8.0,
+          "actual_part_number": null,
+          "physical_fit_verified": false
+        }
+      }
+    },
+    {
+      "id": "pca9685_adafruit_815",
+      "name": "PCA9685 · Adafruit 815 reference",
+      "catalog_ids": [
+        "pca9685_adafruit_815"
+      ],
+      "variant": "Official 815 CAD, purchased board unconfirmed",
+      "file": "reference.stl",
+      "sha256": "1ad7a11923b4c7656264837491fe6964f4377ec674cf9c0437bbadb3b9f59541",
+      "source_file": "reference.step",
+      "source_sha256": "71200cd8d6e03f5cd99293314124ca0f2c97ded824d0acda33f065fa140c3f6a",
+      "source_rotation": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "bottom_allowance_mm": 1.0,
+      "source_url": "https://learn.adafruit.com/16-channel-pwm-servo-driver/downloads",
+      "evidence": "manufacturer_reference_unmeasured",
+      "attribution_files": [
+        "README.md",
+        "source.json"
+      ],
+      "physical_variant_verified": false
+    }
+  ]
+}

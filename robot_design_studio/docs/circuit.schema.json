@@ -1,0 +1,212 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "enum": [
+        "1.0"
+      ]
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+    },
+    "design_revision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "catalog_digest": {
+      "type": "string",
+      "maxLength": 4000
+    },
+    "nets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "kind": {
+            "enum": [
+              "power",
+              "ground",
+              "i2c_sda",
+              "i2c_scl",
+              "pwm",
+              "ttl",
+              "can",
+              "rs485"
+            ]
+          },
+          "voltage_v": {
+            "anyOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instance_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+                },
+                "port_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+                }
+              },
+              "required": [
+                "instance_id",
+                "port_id"
+              ],
+              "additionalProperties": false
+            },
+            "maxItems": 500,
+            "minItems": 2
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "voltage_v",
+          "endpoints"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 500
+    },
+    "allocations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instance_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "port_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "function": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "net_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          }
+        },
+        "required": [
+          "instance_id",
+          "port_id",
+          "function",
+          "net_id"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 500
+    },
+    "addresses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "instance_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "bus_net_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          }
+        },
+        "required": [
+          "instance_id",
+          "bus_net_id",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 500
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 4000
+      },
+      "maxItems": 500
+    },
+    "missing_parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "catalog_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]{0,79}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "category": {
+            "type": "string",
+            "maxLength": 4000
+          },
+          "quantity": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "reason": {
+            "type": "string",
+            "maxLength": 4000
+          }
+        },
+        "required": [
+          "catalog_id",
+          "category",
+          "quantity",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "maxItems": 500
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "design_revision",
+    "catalog_digest",
+    "nets",
+    "allocations",
+    "addresses",
+    "assumptions",
+    "missing_parts"
+  ],
+  "additionalProperties": false
+}

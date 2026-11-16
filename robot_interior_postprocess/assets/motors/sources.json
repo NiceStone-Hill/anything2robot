@@ -1,0 +1,50 @@
+{
+  "models": [
+    {
+      "model_id": "DM6006",
+      "url": "https://raw.githubusercontent.com/dmBots/DM-J6006-2EC/ee456ce4594f011d663672b92bc5b6ea57b72c31/models/3d/DM-J6006-2EC_20240822_1.stp",
+      "source_revision": "ee456ce4594f011d663672b92bc5b6ea57b72c31",
+      "source_path": "models/3d/DM-J6006-2EC_20240822_1.stp",
+      "source_page": "https://github.com/dmBots/DM-J6006-2EC",
+      "license": "Manufacturer public download; redistribution terms not specified",
+      "version_note": "Manufacturer CAD",
+      "file": "DM6006.step",
+      "sha256": "7a04a933153f064acd7d9dfe3d19b3f65f72f30bbea9a920e0c724476b033299",
+      "bytes": 2800379
+    },
+    {
+      "model_id": "DM8006",
+      "url": "https://raw.githubusercontent.com/dmBots/DM-J8006-2EC/d5f3b3c97299f393745ed4a5ad4ebf5e891bdf78/models/3d/%E5%81%9C%E4%BA%A7-DM-J8006%20%E5%87%8F%E9%80%9F%E7%94%B5%E6%9C%BAV1.0-3D%2020240822.stp",
+      "source_revision": "d5f3b3c97299f393745ed4a5ad4ebf5e891bdf78",
+      "source_path": "models/3d/停产-DM-J8006 减速电机V1.0-3D 20240822.stp",
+      "source_page": "https://github.com/dmBots/DM-J8006-2EC",
+      "license": "Manufacturer public download; redistribution terms not specified",
+      "version_note": "V1.0 (legacy version matching original library height)",
+      "file": "DM8006.step",
+      "sha256": "96dbf5d1b43b3a1c128a6508eb04c4402a58c9e713c40945837369eda8c88d38",
+      "bytes": 2167648
+    },
+    {
+      "model_id": "DM10010",
+      "url": "https://raw.githubusercontent.com/dmBots/DM-J10010-2EC/9659f2129b859cb0461ebe8695576db7a1f2915a/models/3d/DM-J10010-2EC_3d20240822_1.stp",
+      "source_revision": "9659f2129b859cb0461ebe8695576db7a1f2915a",
+      "source_path": "models/3d/DM-J10010-2EC_3d20240822_1.stp",
+      "source_page": "https://github.com/dmBots/DM-J10010-2EC",
+      "license": "Manufacturer public download; redistribution terms not specified",
+      "version_note": "Manufacturer CAD",
+      "file": "DM10010.step",
+      "sha256": "5e5d515993c421e98faf26be52380e497a950e3ffab8a6bc31019736e8a329c5",
+      "bytes": 27387250
+    },
+    {
+      "model_id": "MG4005V2",
+      "url": "https://robotopian.com/cdn/shop/files/lkmtech-mg4005-v2-motor-resource-02.step?v=11103809512651016678",
+      "source_page": "https://robotopian.com/collections/robot-parts/products/lkmtech-mg4005-v2-motor",
+      "license": "Supplier public download; redistribution terms not specified",
+      "version_note": "Supplier labels resource MG4005-V2",
+      "file": "MG4005V2.step",
+      "sha256": "b4bdb6f9c51f6e5a0be2e00c1cfa2ef099b2b0cdd3cca3de36fe4c55427adae9",
+      "bytes": 6782659
+    }
+  ]
+}

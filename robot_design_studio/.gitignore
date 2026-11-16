@@ -1,0 +1,13 @@
+.venv/
+.venv-simulation/
+.geometry-venv/
+__pycache__/
+.pytest_cache/
+workspace/
+.env
+archives/
+evidence/
+exports/
+examples/*
+!examples/latest/
+examples/latest/*.tar.gz

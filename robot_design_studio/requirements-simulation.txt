@@ -1,0 +1,4 @@
+# Historical optional environment only; not used by the current model exporter.
+# Model export uses the existing geometry environment; MuJoCo is NOT required.
+# Kept to reproduce old, pre-scope-change evidence only.
+mujoco-core==4.0.1

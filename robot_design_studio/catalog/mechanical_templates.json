@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "revision": "engineering-fixtures-0.2.0",
+  "length_unit": "m",
+  "material": {
+    "id": "pla_candidate",
+    "density_kg_m3": null,
+    "measured": false
+  },
+  "templates": [
+    {
+      "id": "convex_shell",
+      "revision": "1",
+      "method": "convex inward halfspaces; removable cap; clearance bores and captive-nut recesses",
+      "wall_m": 0.0024
+    },
+    {
+      "id": "sg90_fixture",
+      "revision": "1",
+      "catalog_id": "sg90_digital_towerpro",
+      "body_envelope_m": [
+        0.023,
+        0.0122,
+        0.029
+      ],
+      "shaft_offset_m": null,
+      "mount_holes_m": null,
+      "flange_envelope_m": null,
+      "assumed_shaft_offset_m": 0.009,
+      "method": "open motor case, removable retainer, shell-integrated carrier, cable opening",
+      "assumed_shaft_height_above_body_m": 0.006,
+      "design_body_clearance_m": 0.0006
+    },
+    {
+      "id": "horn_bridge",
+      "revision": "1",
+      "horn_holes_m": null,
+      "stock_horn_reference_radius_m": 0.009,
+      "method": "slotted adaptor for stock horn, longitudinal beam and shell-integrated transverse rib; no printed spline"
+    },
+    {
+      "id": "electronics_tray",
+      "revision": "1",
+      "envelope_m": [
+        0.058,
+        0.03,
+        0.017
+      ],
+      "method": "removable tray and lid; mounting ears, docking support, adjustable board tie slots",
+      "board_fit_verified": false
+    },
+    {
+      "id": "fastener_m3_candidate",
+      "revision": "1",
+      "diameter_m": 0.003,
+      "clearance_m": 0.0034,
+      "nut_af_m": 0.0055,
+      "inventory": null,
+      "tolerance_verified": false
+    },
+    {
+      "id": "fastener_m2_candidate",
+      "revision": "1",
+      "diameter_m": 0.002,
+      "clearance_m": 0.0024,
+      "inventory": null,
+      "tolerance_verified": false
+    },
+    {
+      "id": "stock_horn_candidate",
+      "revision": "1",
+      "compatible_servo": "sg90_digital_towerpro",
+      "measured_dimensions": null,
+      "assumed_thickness_m": 0.002,
+      "reference_radius_m": 0.009
+    },
+    {
+      "id": "electronics_retention_candidate",
+      "revision": "1",
+      "type": "nonconductive ties through tray slots",
+      "dimensions": null,
+      "inventory": null
+    }
+  ],
+  "pending": [
+    "SG90 实物外形、安装耳、轴偏置和配套舵盘待测",
+    "舵盘孔距、螺丝啮合、承载和轴承支撑待核实",
+    "Pico 2 焊接状态、MPU6050 板卡尺寸和电子盒固定方式待实测",
+    "打印材料、公差、紧固件、刚度和装配强度未验证",
+    "仅有离散运动检查，没有连续碰撞保证或实物验证",
+    "碰撞检查尚不包含未选型的螺钉头、螺母、插头和线材实体；试件孔位和螺母窝不代表实物已配合"
+  ]
+}

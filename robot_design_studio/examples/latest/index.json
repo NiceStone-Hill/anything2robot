@@ -1,0 +1,165 @@
+[
+  {
+    "project_id": "project_140380e842284558",
+    "name": "05 · Cactus · 250 mm · electronics assembly",
+    "revision": 20,
+    "height_mm": 249.99999999999997,
+    "archive": "project_140380e842284558.tar.gz",
+    "bytes": 45969258,
+    "sha256": "ffb29a0215c75eb354826036153a791362dcb89b4e0e060e9e45614f14d76372",
+    "mechanical": {
+      "run_id": "run_2a65a82381bf466d",
+      "status": "candidate_manual_review",
+      "geometry_valid": true,
+      "manufacturing_ready": false,
+      "shell_partition_valid": false,
+      "input_revision": 19,
+      "dependency_digest": "2096cf65c321e43d2fde47c736e169515e0291e7cb31dbf86f213e3470aa6d39"
+    },
+    "layout": {
+      "run_id": "run_e120c2fbbe974728",
+      "layout_valid": true,
+      "input_revision": 20,
+      "mechanical_run_id": "run_2a65a82381bf466d",
+      "manufacturing_ready": false,
+      "structure_verified": true
+    }
+  },
+  {
+    "project_id": "project_5fa77e8916ab435c",
+    "name": "02 · Mixed motors · 2 joints · reference",
+    "revision": 11,
+    "height_mm": 304.76190476190476,
+    "archive": "project_5fa77e8916ab435c.tar.gz",
+    "bytes": 8178340,
+    "sha256": "67f574fc8e1a5b957ee4161207b523d2bbf57b0f74a383d42da1e15eceab82fd",
+    "mechanical": {
+      "run_id": "run_7ca33ed315894d56",
+      "status": "candidate_checked",
+      "geometry_valid": true,
+      "manufacturing_ready": false,
+      "input_revision": 9,
+      "dependency_digest": "fe21077cf7099ead3c87fdef1d21d53b15089d5d5249c03b157a51d0022dfc38"
+    },
+    "layout": {
+      "run_id": "run_85912889c51b4d62",
+      "layout_valid": true,
+      "input_revision": 11,
+      "mechanical_run_id": "run_7ca33ed315894d56",
+      "manufacturing_ready": false
+    }
+  },
+  {
+    "project_id": "project_6b1e78d10baa4c67",
+    "name": "06 · Cactus · 230 mm · compact prototype",
+    "revision": 9,
+    "height_mm": 230.0,
+    "archive": "project_6b1e78d10baa4c67.tar.gz",
+    "bytes": 43865555,
+    "sha256": "b76305ece8ce59ed8194011491e1497d590aa2d5b07c98f1b2e80fd9966cda26",
+    "mechanical": {
+      "run_id": "run_f3d0e613aae44a7b",
+      "status": "candidate_manual_review",
+      "geometry_valid": false,
+      "manufacturing_ready": false,
+      "shell_partition_valid": false,
+      "input_revision": 8,
+      "dependency_digest": "de47e5e42088569944647e7302b3d1b0c56f81bff80127ee539f4d44c76ba42f"
+    },
+    "layout": {
+      "run_id": "run_7e1d57206cb64fb9",
+      "layout_valid": true,
+      "input_revision": 9,
+      "mechanical_run_id": "run_f3d0e613aae44a7b",
+      "manufacturing_ready": false,
+      "structure_verified": false
+    }
+  },
+  {
+    "project_id": "project_8bcd3846a8074a41",
+    "name": "04 · Cactus · 200 mm · assembly access",
+    "revision": 29,
+    "height_mm": 200.0,
+    "archive": "project_8bcd3846a8074a41.tar.gz",
+    "bytes": 36587614,
+    "sha256": "b5b30df8e940001531bb140b4fc16dc9be2ce675f6e498582a17c48987efa86c",
+    "mechanical": {
+      "run_id": "run_6ddec6df72f441f1",
+      "status": "candidate_manual_review",
+      "geometry_valid": false,
+      "manufacturing_ready": false,
+      "shell_partition_valid": false,
+      "input_revision": 26,
+      "dependency_digest": "643359fb20be2feb79d0f2e57fc767d5fc9ec24cf0ec50f018b7a98f065355ae"
+    },
+    "layout": {
+      "run_id": "run_64dd04e3f8374ecd",
+      "layout_valid": false,
+      "input_revision": 29,
+      "mechanical_run_id": "run_6ddec6df72f441f1",
+      "manufacturing_ready": false,
+      "structure_verified": false
+    }
+  },
+  {
+    "project_id": "project_95d1e73d971c4ba1",
+    "name": "01 · Complete workflow · Open SG90 · 500 mm",
+    "revision": 20,
+    "height_mm": 500.0,
+    "archive": "project_95d1e73d971c4ba1.tar.gz",
+    "bytes": 30218112,
+    "sha256": "3c000a4586faacf5e0161ccb9a890b07b80f2f3f0c66c00fe46410563da097e3",
+    "mechanical": {
+      "run_id": "run_3cd968518199431f",
+      "status": "candidate_checked",
+      "geometry_valid": true,
+      "manufacturing_ready": false,
+      "input_revision": 19,
+      "dependency_digest": "6bdb9c93411a95a3be33456c5b79d18b4f26ab87d46f036b922d3bc3363c775f"
+    },
+    "layout": {
+      "run_id": "run_661d5d2959fb4986",
+      "layout_valid": true,
+      "input_revision": 20,
+      "mechanical_run_id": "run_3cd968518199431f",
+      "manufacturing_ready": false
+    }
+  },
+  {
+    "project_id": "project_c08c662672884f95",
+    "name": "03 · Cactus · 3 joints · structure",
+    "revision": 5,
+    "height_mm": 591.3002520405063,
+    "archive": "project_c08c662672884f95.tar.gz",
+    "bytes": 31006524,
+    "sha256": "1da20c356e04be07c1e3c8dbc6640491b00b4f818241b4b4e9407f17fe50fe4c",
+    "mechanical": {
+      "run_id": "run_368b83faa1bc4742",
+      "status": "candidate_checked",
+      "geometry_valid": true,
+      "manufacturing_ready": false,
+      "input_revision": 5,
+      "dependency_digest": "5787383fb4addf520a9d800962b37d51db8708e57852b953f2bbc7aecc37edf2"
+    },
+    "layout": null
+  },
+  {
+    "project_id": "project_dd7369c54a73411a",
+    "name": "06 · Cactus · 220 mm · compact prototype",
+    "revision": 6,
+    "height_mm": 220.0,
+    "archive": "project_dd7369c54a73411a.tar.gz",
+    "bytes": 34180491,
+    "sha256": "f4b440b9b601d48841ad800b353b4a46da08eb535177131a82e88a71ab780939",
+    "mechanical": {
+      "run_id": "run_5b1ab8924bc74126",
+      "status": "candidate_manual_review",
+      "geometry_valid": false,
+      "manufacturing_ready": false,
+      "shell_partition_valid": false,
+      "input_revision": 6,
+      "dependency_digest": "082702c50b0f3cb8a3d10aec85d1b3f01dcff188790f3cab9d1ae5b5aff947c5"
+    },
+    "layout": null
+  }
+]

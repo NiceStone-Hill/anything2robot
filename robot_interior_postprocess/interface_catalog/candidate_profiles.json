@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "sources": {
+    "lk_catalog": {
+      "url": "https://teika-machine.co.jp/wp-content/uploads/2024/09/%E4%B8%8A%E6%B5%B7%E7%93%B4%E7%A9%BA%E7%A7%91%E6%8A%80%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8%E3%80%80%E6%96%B0%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf",
+      "kind": "manufacturer_catalog_hosted_by_distributor",
+      "document_page": 51,
+      "local_file": "sources/lk_catalog_page_51.pdf",
+      "sha256": "ce97b39bedef0f94c8619f0fbbf05204df7ae151b925dc26ba9b0fef8ca3a6d2",
+      "full_document_sha256": "3ae5828d1c2188225ad70ba3d4bed79190b38f86e8cf2bf510c7f2e987fd21a9",
+      "scope": "MG4005-i10v2 with DF40V2 input voltage and protocol options; does not verify the installed motor or connector cavity numbering"
+    },
+    "installation": {
+      "url": "https://robotopian.com/cdn/shop/files/lkmtech-mg4005-v2-motor-resource-01.pdf?v=12233720923804465128",
+      "kind": "supplier_installation_drawing",
+      "local_file": "sources/mg4005_v2_installation.pdf",
+      "sha256": "a0e6b08e2be6901f042638ca8e85a22b1641dd23458b92b02ce18841a2786471",
+      "scope": "Motor dimensions only; no certified wire-exit position/pin order"
+    },
+    "uno": {
+      "url": "https://docs.arduino.cc/hardware/uno-rev3/",
+      "kind": "official_board_design",
+      "scope": "Official PCB pads, schematic signals and MCU interfaces"
+    },
+    "pololu": {
+      "url": "https://www.pololu.com/product/2851",
+      "kind": "manufacturer_product_documentation",
+      "scope": "5 V output, 6–38 V input, EN/VIN/two GND/VOUT connections; pad coordinates not registered"
+    }
+  },
+  "profiles": {
+    "arduino_uno_rev3e": {
+      "model": "Arduino Uno R3 TH Rev3e",
+      "role": "controller",
+      "host_interfaces": [
+        "SPI",
+        "UART"
+      ],
+      "vin_recommended_range_v": [
+        7,
+        12
+      ],
+      "logic_voltage_v": 5,
+      "sources": [
+        "uno"
+      ],
+      "physical_revision_confirmation_required": true
+    },
+    "pololu_d24v50f5": {
+      "model": "Pololu D24V50F5",
+      "role": "regulator",
+      "input_range_v": [
+        6,
+        38
+      ],
+      "output_range_v": [
+        4.8,
+        5.2
+      ],
+      "nominal_output_v": 5,
+      "sources": [
+        "pololu"
+      ],
+      "ports": [
+        "EN",
+        "VIN",
+        "GND_1",
+        "GND_2",
+        "VOUT"
+      ],
+      "physical_ports_registered": false
+    },
+    "mg4005v2_can": {
+      "model": "MG4005-i10v2 / DF40V2",
+      "role": "motor",
+      "protocol": "CAN",
+      "driver_input_range_v": [
+        7.4,
+        32
+      ],
+      "rated_voltage_v": 24,
+      "sources": [
+        "lk_catalog",
+        "installation"
+      ],
+      "electrical_roles": [
+        "V+",
+        "V-",
+        "CAN_H",
+        "CAN_L"
+      ],
+      "physical_pin_numbers": null,
+      "connector_part_number": null,
+      "local_cable_exit_mm": null,
+      "body_owner_link": null,
+      "selection_status": "candidate_only",
+      "notes": "Functional roles only: do not infer connector cavity order, pair polarity, geometry or actual hardware selection. Existing MG4005V2 library mapping requires exact product/revision confirmation."
+    },
+    "mg4005v2_rs485": {
+      "model": "MG4005-i10v2 / DF40V2",
+      "role": "motor",
+      "protocol": "RS485",
+      "driver_input_range_v": [
+        7.4,
+        32
+      ],
+      "rated_voltage_v": 24,
+      "sources": [
+        "lk_catalog",
+        "installation"
+      ],
+      "electrical_roles": [
+        "V+",
+        "V-",
+        "RS485_A",
+        "RS485_B"
+      ],
+      "physical_pin_numbers": null,
+      "connector_part_number": null,
+      "local_cable_exit_mm": null,
+      "body_owner_link": null,
+      "selection_status": "candidate_only",
+      "notes": "Functional roles only: do not infer connector cavity order, pair polarity, geometry or actual hardware selection. Existing MG4005V2 library mapping requires exact product/revision confirmation."
+    }
+  }
+}

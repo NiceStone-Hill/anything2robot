@@ -1,0 +1,164 @@
+{
+  "layout_run_id": "run_e120c2fbbe974728",
+  "archive_sha256": "549b83d69894503eaf1ed0e0336866c86f52b3d82a08dcc6fde87bb4486c7a54",
+  "verified_printable_count": 13,
+  "parts": [
+    {
+      "file": "fixed_base_shell.stl",
+      "size_mm": [
+        129.37588500976562,
+        79.02760314941406,
+        63.41956329345703
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 78679.9935801705,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "fixed_base_lid.stl",
+      "size_mm": [
+        129.37588500976562,
+        76.51622772216797,
+        60.882781982421875
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 84887.89767009632,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "trunk_shell.stl",
+      "size_mm": [
+        124.30233001708984,
+        74.68795013427734,
+        167.4276123046875
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 133387.37259994473,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "trunk_lid.stl",
+      "size_mm": [
+        185.18508911132812,
+        111.618408203125,
+        115.8560562133789
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 144619.33882106878,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "left_arm_shell.stl",
+      "size_mm": [
+        114.15519714355469,
+        95.67262268066406,
+        41.70977783203125
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 29213.829783206787,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "left_arm_lid.stl",
+      "size_mm": [
+        114.15519714355469,
+        98.93450927734375,
+        39.45977783203125
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 31278.064586426335,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "right_arm_shell.stl",
+      "size_mm": [
+        114.43461608886719,
+        98.53450012207031,
+        41.70977783203125
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 30558.166784753874,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "right_arm_lid.stl",
+      "size_mm": [
+        114.15519714355469,
+        98.78695678710938,
+        39.45977783203125
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 32532.737530509203,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "base_yaw_retainer.stl",
+      "size_mm": [
+        12.300000190734863,
+        33.20000076293945,
+        3.0
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 552.4189389298327,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "left_arm_joint_retainer.stl",
+      "size_mm": [
+        33.20000076293945,
+        12.300000190734863,
+        3.0
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 552.418666038533,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "right_arm_joint_retainer.stl",
+      "size_mm": [
+        33.20000076293945,
+        12.300000190734863,
+        3.0
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 552.418666038533,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "electronics_component_1_carrier.stl",
+      "size_mm": [
+        82.0,
+        39.0,
+        5.0
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 7146.02048805953,
+      "watertight": true,
+      "connected_components": 1
+    },
+    {
+      "file": "electronics_component_0_carrier.stl",
+      "size_mm": [
+        71.0,
+        35.0,
+        8.040000915527344
+      ],
+      "bed_z_mm": 0.0,
+      "volume_mm3": 7560.861976744601,
+      "watertight": true,
+      "connected_components": 1
+    }
+  ],
+  "slicer_and_physical_validation": false
+}

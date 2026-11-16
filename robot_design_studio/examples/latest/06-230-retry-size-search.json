@@ -1,0 +1,37 @@
+{
+  "project_id": "project_6b1e78d10baa4c67",
+  "revision": 9,
+  "height_mm": 230,
+  "runs": {
+    "assembly": {
+      "id": "run_f3d0e613aae44a7b",
+      "status": "rejected",
+      "geometry_valid": false,
+      "layout_valid": null,
+      "hard_failures": [
+        {
+          "name": "base_yaw_child_short_bridge",
+          "passed": false,
+          "length_mm": 0.0,
+          "maximum_length_mm": 35,
+          "allow_exterior": true
+        },
+        {
+          "name": "base_yaw_child_connection",
+          "passed": false,
+          "shell_contact_mm3": 0.0,
+          "module_contact_mm3": 0.0,
+          "minimum_contact_mm3": 4
+        }
+      ]
+    },
+    "layout": {
+      "id": "run_7e1d57206cb64fb9",
+      "status": "completed",
+      "geometry_valid": null,
+      "layout_valid": true,
+      "hard_failures": []
+    }
+  },
+  "size_search_api_loaded": true
+}

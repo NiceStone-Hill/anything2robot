@@ -50,17 +50,17 @@ class Logger:
         self.variable_dict[key] = value
         if print_flag:
             print(key, ": ", value)
-    
+
     def save_variable(self):
         self.variable_dict['exit_code'] = self.exit_code
         self.variable_log_file = self.log_txt_path.replace('.txt', '_variable_exit_code_' + str(self.exit_code) + '.pkl')
         pkl.dump(self.variable_dict, open(self.variable_log_file, 'wb'))
-    
+
     def log_txt(self, log_str, print_flag=True):
         self.log_file.write(log_str + '\n')
         if print_flag:
             print(log_str)
-    
+
     def close(self, exit_code=0):
         self.exit_code = exit_code
         self.save_variable()
@@ -94,7 +94,7 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
         motor_param_lib = MotorParameterLib()
         motor_lib = motor_param_lib.get_motor_lib()
         connector_lib = motor_param_lib.get_connector_lib()
-        
+
         motor_opt = Motor_Opt(args, mesh_decomp, bounds, motor_lib, connector_lib)
         motor_results, cost_log, best_fitness = motor_opt.run_opt(generation_num=args.genetic_generation)
         actuator_opt_end_time = time.time()
@@ -133,10 +133,10 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
         ##### Remove the interference between the links while moving the joints
         log.log_txt("Removing the interference between the links...")
         interference_removal_start_time = time.time()
-        interference_removal = InterferenceRemoval(args=args, 
-                                                mesh_group=mesh_decomp.mesh_group, 
-                                                motor_param_result=motor_results, 
-                                                link_tree=mesh_decomp.link_tree, 
+        interference_removal = InterferenceRemoval(args=args,
+                                                mesh_group=mesh_decomp.mesh_group,
+                                                motor_param_result=motor_results,
+                                                link_tree=mesh_decomp.link_tree,
                                                 father_link_dict=mesh_decomp.father_link_dict)
         # joint_limits = np.vstack([np.array([-0.785, 0.785]) for _ in range(2*len(motor_results))])
         interference_removal.set_joint_limit(args.joint_limitation, args.joint_limitation_from_champ)
@@ -155,7 +155,7 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
         urdf_path = interference_removal.generate_urdf(result_saving_folder=round_result_saving_folder)
         log.log_txt("Saving the results... URDF file is saved at: " + urdf_path)
         robot_result = RobotOptResult(interference_removal, urdf_path, motor_lib)
-        
+
         pkl_file_path = os.path.normpath(round_result_saving_folder + '/robot_result.pkl')
         pkl.dump(robot_result, open(pkl_file_path, 'wb'))
         result_saving_end_time = time.time()
@@ -168,9 +168,9 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
         urdf_folder = os.path.dirname(urdf_path)
         destruction_check_pass = destruction_check_urdf_folder(urdf_folder, pkl_file_path, plotting=False)
         destruction_check_end_time = time.time()
-        
+
         log.log_variable('destruction_check_time', destruction_check_end_time - destruction_check_start_time)
-        
+
         if not destruction_check_pass:
             log.log_txt("Failure Code 2. The mesh is destroyed. Re-optimizing with a larger model... Scale the model by " + str(enlarge_scale))
             exit_code = 2
@@ -184,23 +184,23 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
             for file in files:
                 if file.endswith(".stl"):
                     stl_files.append(os.path.join(root, file))
-        
+
         for stl_file in stl_files:
             mesh = trimesh.load(stl_file)
             if not mesh.is_watertight:
                 log.log_txt("Failure Code 3. The mesh is not watertight. Re-optimizing with a larger model... Scale the model by " + str(enlarge_scale))
                 exit_code = 3
                 break
-        
+
         water_tight_check_end_time = time.time()
         log.log_variable('water_tight_check_time', water_tight_check_end_time - water_tight_check_start_time)
-        
+
         if exit_code == 3:
             log.log_txt("The mesh is not watertight. Re-optimizing with a larger model... Scale the model by " + str(enlarge_scale))
             log.close(exit_code)
             return exit_code
 
-        
+
         ##### Do FEA analysis for each link if the flag is set
         if args.do_fea_analysis:
             log.log_txt("Do FEA analysis...")
@@ -229,17 +229,17 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
                     log.log_variable('recorded_displacement_magnitude_curve_' + file_name, recorded_displacement_magnitude)
 
                 time.sleep(3)
-            
+
             fea_end_time = time.time()
             log.log_variable('fea_time', fea_end_time - fea_start_time)
-            
-            if exit_code == 4 and args.regenerate_if_fea_failed:               
+
+            if exit_code == 4 and args.regenerate_if_fea_failed:
                 log.close(exit_code)
                 return exit_code
             else:
                 log.log_txt("Success!!!!!!!!!!! The model is feasible in FEA.")
-        
-        
+
+
         log.log_txt("Round " + str(round) + " is done. Time: " + str(time.time() - start_time) + " seconds.")
         log.log_txt("Exit code: " + str(exit_code))
         log.close(exit_code)
@@ -250,7 +250,7 @@ def design_one_round(args, mesh_loader, round, log, round_result_saving_folder, 
         exit_code = 555
         log.close(exit_code)
         return exit_code
-    
+
     return exit_code
 
 
@@ -276,7 +276,7 @@ def check_if_result_exists(result_folder, model_name, max_round=8):
                         if "exit_code_0" in file:
                             result_exist = True
                             return result_exist
-    
+
     return result_exist
 
 
@@ -306,7 +306,7 @@ def auto_design_function(args, mapdl_object=None):
     if not os.path.exists(mesh_path):
         print("Error: The mesh path doesn't exist.")
         return -1
-    
+
     # Use a standard scale (delt x = 50cm) for joint setting if the flag is set
     if args.joint_setting_standard_scale:
         original_mesh = trimesh.load(mesh_path)
@@ -328,7 +328,7 @@ def auto_design_function(args, mapdl_object=None):
     mesh_loader.load_mesh(mesh_path)
     mesh_loader.load_joint_positions(joint_path, figure_save_path=args.result_folder + '/joint_positions.png')
     expected_x = args.expected_x
-    
+
     # Set the motor cost threshold
     avg_motor_cost_threshold = 50  # A big number to filter out the insane results. No need to do mesh optimization if the motor cost is too high.
     enlarge_scale = 1.1 # This could also be a parameter to be set by the user.
@@ -339,14 +339,14 @@ def auto_design_function(args, mapdl_object=None):
             mapdl_object = MapdlFea() # Start the Ansys Mapdl object if the FEA analysis is turned on
         else:
             external_mapdl_object = True
-    
+
     round = 0
     exit_code = -1
 
     save_only = True
     if args.visualize:
         save_only = False
-    
+
     # The motor cost should be less than the threshold
     while exit_code != 0 and round < args.max_trial_round:
         round += 1
@@ -361,16 +361,16 @@ def auto_design_function(args, mapdl_object=None):
         # Scale the model. If it is not the first round, the model will be scaled further by enlarge_scale.
         if round > 1:
             expected_x = expected_x * enlarge_scale
-        
+
         mesh_loader.scale(expected_x, save_path=round_result_saving_folder + '/scaled_model_expected_x_' + str(expected_x) + '.stl')
 
-        log.log_txt("Decomposing and motor optimization process: " + str(round))    
+        log.log_txt("Decomposing and motor optimization process: " + str(round))
 
         exit_code = design_one_round(args, mesh_loader, round, log, round_result_saving_folder, enlarge_scale=enlarge_scale, avg_motor_cost_threshold=avg_motor_cost_threshold, save_only=save_only, mapdl_object=mapdl_object)
-        
 
 
-    if args.do_fea_analysis and not external_mapdl_object: 
+
+    if args.do_fea_analysis and not external_mapdl_object:
         # If the mapdl_object is created in this function, then we need to shut it down. Otherwise, we need to keep it alive.
         mapdl_object.shutdown()
 
@@ -384,10 +384,10 @@ if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Mesh Loader')
 
     # parser.add_argument('--stl_mesh_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Mario_Character_Image_1020080024_scaled.stl'), help='The path to the stl mesh file.')
-    # parser.add_argument('--joint_pkl_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Mario_Character_Image_1020080024_joints.pkl'), help='The path to the joint pkl file. Optional. If not provided, UI can be used to add joints.') 
-    
+    # parser.add_argument('--joint_pkl_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Mario_Character_Image_1020080024_joints.pkl'), help='The path to the joint pkl file. Optional. If not provided, UI can be used to add joints.')
+
     parser.add_argument('--stl_mesh_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Cactus_Character_Scaled.stl'), help='The path to the stl mesh file.')
-    parser.add_argument('--joint_pkl_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Cactus_Character_Scaled_joints.pkl'), help='The path to the joint pkl file. Optional. If not provided, UI can be used to add joints.') 
+    parser.add_argument('--joint_pkl_path', type=str, default=os.path.normpath(project_path + '/auto_design/model/given_models/Cactus_Character_Scaled_joints.pkl'), help='The path to the joint pkl file. Optional. If not provided, UI can be used to add joints.')
 
     parser.add_argument('--result_folder', type=str, default=os.path.normpath(project_path + '/result'), help='The folder to save the results.')
 
@@ -404,12 +404,18 @@ if __name__=="__main__":
 
     parser.add_argument('--visualize', type=bool, default=True, help='Visualize the process or not. Need to close the windows to continue the process if turned on.')
     parser.add_argument('--disable_joint_setting_ui', type=bool, default=False, help='Disable the joint setting UI or not')
+    parser.add_argument('--headless', action='store_true', help='Read trusted local joint annotations without creating GUI windows')
     parser.add_argument('--joint_setting_standard_scale', type=bool, default=False, help='Scale the model to a standard scale for easier joint setting in the UI or not')
 
     ### No need to set model_name. This is a temporary value. It will be removed in the future.
     parser.add_argument('--model_name', type=str, default='None', help='Temporary value. No need to set this value.')
 
     args = parser.parse_args()
+    if args.headless:
+        if not os.path.isfile(args.joint_pkl_path):
+            parser.error('--headless requires an existing joint annotation file')
+        args.disable_joint_setting_ui = True
+        args.visualize = False
 
-    auto_design_function(args)
-    
+    sys.exit(auto_design_function(args))
+

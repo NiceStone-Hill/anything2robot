@@ -1,0 +1,21 @@
+{
+  "mode": "explicit_bundle_corridor_assumptions",
+  "units": "mm",
+  "sleeve_wall_mm": 0.5,
+  "cable_gap_mm": 0.2,
+  "clearance_mm": 0.5,
+  "max_exit_distance_mm": 45.0,
+  "exit_spacing_mm": 16.0,
+  "min_bend_radius_mm": 4.0,
+  "bend_radius_factor": 2.0,
+  "assumptions": [
+    "Sleeve, packing gaps and bend radii are design assumptions, not manufacturer specifications.",
+    "Cable outer diameters and electrical connections are inherited from the input candidate.",
+    "All cable identities stay distinct when sharing a mechanical sleeve; no electrical splice is introduced.",
+    "One proposed aggregation exit per device replaces independent proposed exits. Real connector fan-out remains unresolved.",
+    "Packing layouts reserve cross-sectional space; transport of individual cables through branches and bends remains unvalidated.",
+    "This variant does not cut the shell or create printable clips. Shared raceways and retention follow corridor review."
+  ],
+  "junction_merge_distance_mm": 18.0,
+  "preferred_bend_radius_factor": 4.0
+}

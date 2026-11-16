@@ -40,9 +40,9 @@ import pyvista as pv
 from pyvistaqt import QtInteractor
 
 
-def _find_free_port():
+def _find_free_port(host="127.0.0.1"):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind(("127.0.0.1", 0))
+        s.bind((host, 0))
         return s.getsockname()[1]
 
 
@@ -59,6 +59,8 @@ def _wait_tcp_port(host, port, timeout_sec=20.0, poll_sec=0.1):
 
 def _open_browser(url):
     print("Dash Plotly UI:", url)
+    if os.environ.get("ANYTHING2ROBOT_OPEN_BROWSER", "1") == "0":
+        return
     if sys.platform.startswith("linux"):
         xdg = shutil.which("xdg-open")
         if xdg:
@@ -102,25 +104,27 @@ class Mesh:
         """
         self.mesh_path = mesh_path
         self.mesh_o3d = o3d.io.read_triangle_mesh(mesh_path)
-        self.mesh_plotly = create_mesh(mesh_path)
+        self._update_display_mesh()
+
+    def _update_display_mesh(self):
+        # Simplify a display copy only; design calculations retain the full mesh.
+        display_mesh = self.mesh_o3d
+        budget = int(os.environ.get("ANYTHING2ROBOT_UI_MAX_TRIANGLES", "0"))
+        if budget > 0 and len(display_mesh.triangles) > budget:
+            display_mesh = display_mesh.simplify_quadric_decimation(budget)
+        vertices = np.asarray(display_mesh.vertices)
+        triangles = np.asarray(display_mesh.triangles)
+        self.mesh_plotly = go.Mesh3d(
+            x=vertices[:, 0], y=vertices[:, 1], z=vertices[:, 2],
+            i=triangles[:, 0], j=triangles[:, 1], k=triangles[:, 2],
+            opacity=0.2, color='grey', hoverinfo='skip')
 
     def transform(self, transformation_matrix):
         """
         Transform the mesh data.
         """
         self.mesh_o3d = self.mesh_o3d.transform(transformation_matrix)
-        vertices = np.asarray(self.mesh_o3d.vertices)
-        triangles = np.asarray(self.mesh_o3d.triangles)
-        self.mesh_plotly = go.Mesh3d(
-            x=vertices[:, 0],
-            y=vertices[:, 1],
-            z=vertices[:, 2],
-            i=triangles[:, 0],
-            j=triangles[:, 1],
-            k=triangles[:, 2],
-            opacity=0.2,
-            color='grey'
-        )
+        self._update_display_mesh()
 
     def scale(self, scale_factor):
         """
@@ -129,18 +133,7 @@ class Mesh:
         
         self.mesh_o3d.scale(scale_factor, center=np.array([0, 0, 0]))
         
-        vertices = np.asarray(self.mesh_o3d.vertices)
-        triangles = np.asarray(self.mesh_o3d.triangles)
-        self.mesh_plotly = go.Mesh3d(
-            x=vertices[:, 0],
-            y=vertices[:, 1],
-            z=vertices[:, 2],
-            i=triangles[:, 0],
-            j=triangles[:, 1],
-            k=triangles[:, 2],
-            opacity=0.2,
-            color='grey'
-        )
+        self._update_display_mesh()
 
     
     def render(self, save_only=False, save_path=None):
@@ -274,6 +267,10 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
 
         # Point selection frame
         self.point_selection_frame = self.create_point_selection_frame()
+        self._point_render_timer = QTimer(self)
+        self._point_render_timer.setSingleShot(True)
+        self._point_render_timer.setInterval(33)
+        self._point_render_timer.timeout.connect(self.plotter.render)
         self.point_selection_frame.setMinimumSize(400, 400) 
         self.point_selection_frame.setMaximumSize(800, 800)
         self.layout.addWidget(self.point_selection_frame, 0, 2, 2, 1)
@@ -288,6 +285,7 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
             # Plotly in Dash: Werkzeug server on a free port (no fixed 8050, no duplicate run_server).
             self.fig = make_subplots(specs=[[{"type": "scene"}]])
             self.fig.add_trace(mesh.mesh_plotly)
+            self.fig.update_layout(uirevision="joint-editor")
 
             dash_flask = Flask(__name__)
             try:
@@ -307,14 +305,17 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
             def update_bar_chart(n_clicks):
                 return self.fig
 
-            self._dash_port = _find_free_port()
+            dash_host = os.environ.get("ANYTHING2ROBOT_DASH_HOST", "127.0.0.1")
+            self._dash_port = int(os.environ.get("ANYTHING2ROBOT_DASH_PORT", "0"))
+            if self._dash_port == 0:
+                self._dash_port = _find_free_port(dash_host)
             if _wz_make_server is not None:
                 self._dash_srv = _wz_make_server(
-                    "127.0.0.1", self._dash_port, self.app.server, threaded=True)
+                    dash_host, self._dash_port, self.app.server, threaded=True)
             else:
                 from wsgiref.simple_server import make_server as _ws_make_server
                 self._dash_srv = _ws_make_server(
-                    "127.0.0.1", self._dash_port, self.app.server)
+                    dash_host, self._dash_port, self.app.server)
 
             def _serve_dash():
                 try:
@@ -326,8 +327,11 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
             self._dash_server_thread = threading.Thread(target=_serve_dash, daemon=True)
             self._dash_server_thread.start()
 
-            dash_url = f"http://127.0.0.1:{self._dash_port}/"
-            if not _wait_tcp_port("127.0.0.1", self._dash_port):
+            local_host = "127.0.0.1" if dash_host == "0.0.0.0" else dash_host
+            dash_url = f"http://{local_host}:{self._dash_port}/"
+            if dash_host == "0.0.0.0":
+                print(f"Windows / remote browser: http://<VM-IP>:{self._dash_port}/")
+            if not _wait_tcp_port(local_host, self._dash_port):
                 print(
                     "Warning: Dash server did not accept TCP connections in time; open this URL manually:",
                     dash_url,
@@ -385,7 +389,17 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
         # Load an STL file and add a sphere to the PyVista plotter
         self.load_model()
 
+        # Hide the surface when positioning joints inside an opaque model.
+        self.show_model_checkbox = QtWidgets.QCheckBox("Show model")
+        self.show_model_checkbox.setChecked(True)
+        self.show_model_checkbox.toggled.connect(self.set_model_visible)
+        layout.addWidget(self.show_model_checkbox)
+
         return frame
+
+    def set_model_visible(self, visible):
+        self.model_actor.SetVisibility(visible)
+        self.plotter.render()
     
     def create_point_selection_slider_frame(self):
         frame = QtWidgets.QGroupBox("Point Selection Slider")
@@ -400,17 +414,21 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
         # Set slider ranges using self.mesh_bounds
         bound = self.mesh_bounds
         self.mesh_middle_point = [(bound[0] + bound[1]) / 2, (bound[2] + bound[3]) / 2, (bound[4] + bound[5]) / 2]
-        self.slider_x.setRange(bound[0], bound[1])
-        self.slider_y.setRange(bound[2], bound[3])
-        self.slider_z.setRange(bound[4], bound[5])
-        self.slider_x.setValue(self.mesh_middle_point[0])
-        self.slider_y.setValue(self.mesh_middle_point[1])
-        self.slider_z.setValue(self.mesh_middle_point[2])
+        # Qt sliders take integers; map them to the model's floating point bounds.
+        for slider in (self.slider_x, self.slider_y, self.slider_z):
+            slider.setRange(0, 1000)
+            slider.setValue(500)
 
         # Update the min, max of the joint_x_input based on the mesh bounds
         self.joint_x_input.setRange(bound[0], bound[1])
         self.joint_y_input.setRange(bound[2], bound[3])
         self.joint_z_input.setRange(bound[4], bound[5])
+        for spinbox, value in zip(
+                (self.joint_x_input, self.joint_y_input, self.joint_z_input),
+                self.mesh_middle_point):
+            blocker = QtCore.QSignalBlocker(spinbox)
+            spinbox.setValue(value)
+            del blocker
 
         # Add labels
         layout.addWidget(QtWidgets.QLabel("X Position"))
@@ -436,14 +454,19 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
         stl_mesh = pv.read(stl_file_path)
         # Get the bounds of the mesh
         self.mesh_bounds = stl_mesh.bounds
+        budget = int(os.environ.get("ANYTHING2ROBOT_UI_MAX_TRIANGLES", "0"))
+        if budget > 0 and stl_mesh.n_cells > budget:
+            stl_mesh = stl_mesh.decimate_pro(1.0 - budget / stl_mesh.n_cells)
+        print(f"Qt display mesh: {stl_mesh.n_cells} triangles")
         center = [(self.mesh_bounds[0] + self.mesh_bounds[1]) / 2, (self.mesh_bounds[2] + self.mesh_bounds[3]) / 2, (self.mesh_bounds[4] + self.mesh_bounds[5]) / 2]
         # Create a sphere (representing a point)
-        self.shpere_position = center
-        self.sphere = pv.Sphere(radius=1, center=self.shpere_position)
-        # Add the STL mesh with transparency
-        self.plotter.add_mesh(stl_mesh, opacity=0.5, color="lightblue")
+        self.sphere_position = center
+        self.sphere = pv.Sphere(radius=1, center=(0, 0, 0))
+        # VMware's translucent VTK pass can leave the entire surface invisible.
+        self.model_actor = self.plotter.add_mesh(stl_mesh, opacity=1.0, color="lightblue")
         # Add a red sphere
         self.sphere_actor = self.plotter.add_mesh(self.sphere, color="red")
+        self.sphere_actor.SetPosition(*center)
         self.plotter.add_axes()
         self.plotter.show()
 
@@ -452,15 +475,19 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
 
     def slider_position_updated(self):
         """ Update the sphere position based on the slider values """
-        x = self.slider_x.value()
-        y = self.slider_y.value()
-        z = self.slider_z.value()
-        self.shpere_position = (x, y, z)
-        self.update_sphere_position(self.shpere_position)
-
-        self.joint_x_input.setValue(x)
-        self.joint_y_input.setValue(y)
-        self.joint_z_input.setValue(z)
+        values = []
+        changed_slider = self.sender()
+        for axis, slider, spinbox in zip(
+                range(3), (self.slider_x, self.slider_y, self.slider_z),
+                (self.joint_x_input, self.joint_y_input, self.joint_z_input)):
+            low, high = self.mesh_bounds[2 * axis:2 * axis + 2]
+            value = low + slider.value() / 1000.0 * (high - low)
+            if changed_slider is None or changed_slider is slider:
+                blocker = QtCore.QSignalBlocker(spinbox)
+                spinbox.setValue(value)
+                del blocker
+            values.append(spinbox.value())
+        self.update_sphere_position(values)
 
     def update_slider_position(self):
         """ Update the sphere position based on the joint input values """
@@ -468,20 +495,22 @@ class LinkTreeGUI(QtWidgets.QMainWindow):
         y = self.joint_y_input.value()
         z = self.joint_z_input.value()
 
-        self.slider_x.setValue(x)
-        self.slider_y.setValue(y)
-        self.slider_z.setValue(z)
+        for axis, slider, value in zip(
+                range(3), (self.slider_x, self.slider_y, self.slider_z), (x, y, z)):
+            low, high = self.mesh_bounds[2 * axis:2 * axis + 2]
+            position = round(1000 * (value - low) / (high - low)) if high > low else 0
+            blocker = QtCore.QSignalBlocker(slider)
+            slider.setValue(position)
+            del blocker
+        self.update_sphere_position((x, y, z))
     
     def update_sphere_position(self, new_position):
         """ Update the sphere position and refresh the plot """
         self.sphere_position = new_position
         
-        # Remove the old sphere
-        self.plotter.remove_actor(self.sphere_actor)
-        # Add a new sphere at the updated position
-        self.sphere_actor = self.plotter.add_mesh(pv.Sphere(radius=1, center=self.sphere_position), color="red")
-        # Update the plotter to reflect changes
-        self.plotter.render()
+        self.sphere_actor.SetPosition(*new_position)
+        if not self._point_render_timer.isActive():
+            self._point_render_timer.start()
 
 
     def create_link_edit_frame(self):
@@ -1149,7 +1178,10 @@ class Mesh_Loader:
 
         # Get the scale factor
         vertices = np.asarray(self.mesh.mesh_o3d.vertices)
-        self.scale_factor = expected_x / 2 / (np.max(vertices[:,0]))
+        width = np.ptp(vertices[:, 0])
+        if width <= 0:
+            raise ValueError("Mesh must have positive X extent")
+        self.scale_factor = expected_x / width
 
         # Scale the mesh
         self.scaled_mesh = self.mesh
@@ -1192,6 +1224,21 @@ class Custom_Mesh_Loader(Mesh_Loader):
         super().__init__(args)
 
     def load_joint_positions(self, joint_path: str, figure_save_path=None):
+        if getattr(self.args, "headless", False):
+            with open(joint_path, "rb") as stream:
+                nodes = pkl.load(stream)
+            if "BODY" not in nodes:
+                raise ValueError("Joint annotations require a BODY root")
+            self.link_tree = nodes["BODY"]
+            self.joint_dict = {}
+            for node in [self.link_tree] + self.link_tree.get_all_children()[0]:
+                if len(node.val.joints) < 2:
+                    raise ValueError(f"{node.val.name}: at least two annotation points required")
+                node.val.construct_joint_lines()
+                self.joint_dict.update(node.val.joints)
+            if not any("foot" in name for name in self.joint_dict):
+                raise ValueError("At least one foot contact annotation required")
+            return
         
         # Create an instance of QApplication
         app = QApplication(sys.argv)

@@ -1,0 +1,24 @@
+{
+  "display_name": "Cactus layout",
+  "layout_constraints": {"mode": "llm"},
+  "design_result": "result/gui_full_test_20261012_093651/Cactus_Character_Scaled_20261012-093653/result_round1",
+  "manufacturing_result": "result/Cactus_manufacturing_20261015",
+  "circuit_directory": "data/electronics/cactus_tinkercad",
+  "voxel_tool_source": "/home/qinxuan/projects/voxel_tool/src",
+  "output": "robot_interior_postprocess/outputs/cactus",
+  "pitch_mm": 3.0,
+  "wall_mm": 3.0,
+  "mount_support_mm": 6.0,
+  "motor_clearance_mm": 3.0,
+  "component_clearance_mm": 3.0,
+  "wire_radius_mm": 1.0,
+  "placement_part": "base",
+  "motor_mapping": {"SERVO2": "motor_base", "SERVO1": "motor_l_arm", "SERVO3": "motor_r_arm"},
+  "motor_model_mapping": {"motor_base": "MG4005V2", "motor_l_arm": "MG4005V2", "motor_r_arm": "MG4005V2"},
+  "components": [
+    {"id":"U1","name":"Arduino Uno R3","size_mm":[74,58,24],"color":[0.1,0.6,0.8],"accuracy":"Conservative board + connector proxy; verify physical board"},
+    {"id":"BATTERY","name":"BATTERY | 9.6 V NiMH (8 AA + holder)","size_mm":[132,76,32],"color":[0.3,0.8,0.3],"accuracy":"Envelope covers candidate Adafruit 875 holder CAD (127 x 71 x 19 mm) with allowance; cells, leads and installation still require verification"},
+    {"id":"REGULATOR","name":"REGULATOR | D24V50F5 5 V output","size_mm":[26,24,14],"color":[0.6,0.3,0.9],"accuracy":"D24V50F5 envelope with connector allowance"},
+    {"id":"S1","name":"Power switch","size_mm":[16,10,12],"color":[0.8,0.4,0.1],"accuracy":"Provisional switch envelope; external actuator access pending"}
+  ]
+}

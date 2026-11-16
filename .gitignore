@@ -10,3 +10,17 @@ result/
 .conda-env/*
 *.pkl
 given_models/
+# Local tools, credentials and generated runtime state
+.aws/
+.codex/
+.agents/
+.pytest_cache/
+.ruff_cache/
+**/.venv/
+**/.env
+**/.env.*
+!**/.env.example
+*.pyc
+# Documentation for maintained extensions is source, not generated output.
+!robot_design_studio/docs/
+!robot_design_studio/docs/**

@@ -33,62 +33,62 @@ get_removed_list = lambda list, remove_value: [value for value in list if value 
 display_count_test = 0
 
 def set_diff_numpy(A, B):
-    # Create an array of shape (A.shape[0], B.shape[0]) where each element in A is compared with each in B
-    # This results in a boolean array where True indicates that an element of A exists in B
-    A_ext = np.expand_dims(A, axis=1)  # Extend A to (n, 1, 3)
-    matches = np.any(np.all(A_ext == B, axis=2), axis=1)  # Compare A extended with B and collapse dimensions
-    
-    # Use the boolean array to filter elements in A that are not in B
-    diff = A[~matches]  # Select those elements of A which do not match any element in B
-    
-    return diff
+    """Exact row difference without allocating an N x M x 3 comparison."""
+    excluded = {tuple(row) for row in B}
+    return A[np.array([tuple(row) not in excluded for row in A], dtype=bool)]
+
 
 def heuristic(a, b):
-    """Calculate the Manhattan distance between two points"""
     return abs(a[0] - b[0]) + abs(a[1] - b[1]) + abs(a[2] - b[2])
 
-def a_star_search(voxel_3D, start_idx, end_idxs, collision_values):
-    directions = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
-    queue = []
-    heapq.heappush(queue, (0, start_idx))
+
+def _goal_data(voxel_3D, end_idxs):
+    goals = np.zeros(voxel_3D.shape, dtype=bool)
+    ends = np.asarray(end_idxs, dtype=int).reshape(-1, 3)
+    valid = np.all((ends >= 0) & (ends < np.array(voxel_3D.shape)), axis=1)
+    ends = ends[valid]
+    if not len(ends):
+        return goals, None, None
+    goals[tuple(ends.T)] = True
+    return goals, ends.min(axis=0), ends.max(axis=0)
+
+
+def a_star_search(voxel_3D, start_idx, end_idxs, collision_values, goal_data=None):
+    """Shortest six-neighbour path to any target, within allowed voxels."""
+    goals, low, high = goal_data if goal_data is not None else _goal_data(voxel_3D, end_idxs)
+    start_idx = tuple(int(v) for v in start_idx)
+    if low is None or any(v < 0 or v >= n for v, n in zip(start_idx, voxel_3D.shape)):
+        return []
+    # Distance to the targets' bounding box is an admissible lower bound.
+    def estimate(idx):
+        return sum(max(int(low[i]) - idx[i], 0, idx[i] - int(high[i])) for i in range(3))
+    queue = [(estimate(start_idx), 0, start_idx)]
     costs = {start_idx: 0}
-    parent_dict = {start_idx: None}
-
+    parents = {start_idx: None}
+    blocked = set(collision_values)
+    directions = [(1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)]
     while queue:
-        current_cost, cur_idx = heapq.heappop(queue)
-
-        # Check if we have reached the goal
-        if np.any(np.all(end_idxs == cur_idx, axis=1)):
-            break
-        
-        # Explore each possible direction
+        _, cost, current = heapq.heappop(queue)
+        if cost != costs[current]:
+            continue
+        if goals[current]:
+            path = []
+            while current is not None:
+                path.append(current)
+                current = parents[current]
+            return path[::-1]
         for direction in directions:
-            new_idx = (cur_idx[0] + direction[0], cur_idx[1] + direction[1], cur_idx[2] + direction[2])
-            
-            # Check if new index is within the voxel grid bounds
-            if (0 <= new_idx[0] < voxel_3D.shape[0] and
-                0 <= new_idx[1] < voxel_3D.shape[1] and
-                0 <= new_idx[2] < voxel_3D.shape[2] and
-                voxel_3D[new_idx] not in collision_values):
-                
-                new_cost = current_cost + 1  # Assuming uniform cost for simplicity
-                
-                # If new node has not been visited or a cheaper path to it is found
-                if new_idx not in costs or new_cost < costs[new_idx]:
-                    costs[new_idx] = new_cost
-                    priority = new_cost + heuristic(new_idx, np.mean(end_idxs, axis=0))
-                    heapq.heappush(queue, (priority, new_idx))
-                    parent_dict[new_idx] = cur_idx
-
-    # Reconstruct the path from end to start by following parent links
-    path = []
-    if np.any(np.all(end_idxs == cur_idx, axis=1)):
-        while cur_idx:
-            path.append(cur_idx)
-            cur_idx = parent_dict[cur_idx]
-        path.reverse()
-
-    return path
+            nxt = tuple(a + b for a, b in zip(current, direction))
+            if any(v < 0 or v >= n for v, n in zip(nxt, voxel_3D.shape)):
+                continue
+            if voxel_3D[nxt] in blocked:
+                continue
+            new_cost = cost + 1
+            if new_cost < costs.get(nxt, float('inf')):
+                costs[nxt] = new_cost
+                parents[nxt] = current
+                heapq.heappush(queue, (new_cost + estimate(nxt), new_cost, nxt))
+    return []
 
 class General_GA(Improved_Generic_Algorithm):
     def __init__(self, bounds, int_bounds, joint_tree, mesh_decomp, motor_type_params,
@@ -568,8 +568,9 @@ class Joint_Connect_Opt:
     '''
     def connect_voxels_occupied_space(self, mesh_group, start_idxs, end_idxs, connect_link_name):
         path = []
+        goals = _goal_data(mesh_group.voxel_data, end_idxs)
         for i in range(start_idxs.shape[0]):
-            added_path = a_star_search(mesh_group.voxel_data, (start_idxs[i,0], start_idxs[i,1], start_idxs[i,2]), end_idxs, collision_values=[0])
+            added_path = a_star_search(mesh_group.voxel_data, (start_idxs[i,0], start_idxs[i,1], start_idxs[i,2]), end_idxs, collision_values=[0], goal_data=goals)
             if added_path != []:
                 path += added_path
         path = np.array(path).reshape(-1, 3)
@@ -594,8 +595,9 @@ class Joint_Connect_Opt:
         other_link_keys_value_list.remove(current_link_key_value)
         # other_link_keys_value_list.remove(0)  # Remove the empty space value
 
+        goals = _goal_data(mesh_group.voxel_data, end_idxs)
         for i in range(start_idxs.shape[0]):
-            added_path = a_star_search(mesh_group.voxel_data, (start_idxs[i,0], start_idxs[i,1], start_idxs[i,2]), end_idxs, collision_values=other_link_keys_value_list)
+            added_path = a_star_search(mesh_group.voxel_data, (start_idxs[i,0], start_idxs[i,1], start_idxs[i,2]), end_idxs, collision_values=other_link_keys_value_list, goal_data=goals)
             if added_path != []:
                 path += added_path
         path = np.array(path).reshape(-1, 3)

@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "mode": "explicit_design_assumptions_not_physical_registration",
+  "scenario": "CAN",
+  "wire_diameter_mm": 2.0,
+  "bus_pair_diameter_mm": 3.0,
+  "min_bend_radius_mm": 4.0,
+  "clearance_mm": 0.5,
+  "port_spacing_mm": 10.0,
+  "max_terminal_extension_mm": 45.0,
+  "max_route_attempts": 4,
+  "support_spacing_mm": 35.0,
+  "new_component_envelopes_mm": {
+    "PW_BUS_INTERFACE": [
+      35,
+      22,
+      12
+    ],
+    "PW_FUSE": [
+      20,
+      12,
+      10
+    ],
+    "PW_MAIN_SWITCH": [
+      20,
+      12,
+      12
+    ],
+    "PW_POWER_DISTRIBUTION": [
+      40,
+      16,
+      12
+    ],
+    "PW_GROUND_DISTRIBUTION": [
+      50,
+      16,
+      12
+    ],
+    "PW_CONTROLLER_SUPPLY": [
+      25,
+      20,
+      12
+    ],
+    "PW_BUS_LOOM": [
+      65,
+      18,
+      10
+    ],
+    "PW_TERM_HOST": [
+      10,
+      8,
+      6
+    ],
+    "PW_TERM_END": [
+      10,
+      8,
+      6
+    ]
+  },
+  "assumptions": [
+    "CAN is a reproducible design scenario, not a confirmed motor selection.",
+    "All dimensions and cable specifications in this file are design assumptions, not measured hardware specifications.",
+    "Existing battery envelope reserves space for the unselected motor supply; no voltage/current compatibility is implied.",
+    "Where adjacent to the electronics owner, motor connector bodies are proposed on that owner. Actual mounting side is unconfirmed.",
+    "Proposed terminal extensions reserve connector/tail design space; they are not measured pins or verified motor access ducts.",
+    "The bus loom is a reserved subassembly. Internal trunk, tap lengths, termination and firmware require separate validation.",
+    "Pico 2 controller; PW_CONTROLLER_SUPPLY is a reserved 5 V reverse-feed protection stage, not the Uno 7-12 V supply."
+  ],
+  "try_wall_channels": false
+}

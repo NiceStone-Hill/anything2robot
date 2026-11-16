@@ -1,0 +1,813 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "layout_constraints": {
+    "mode": "llm"
+  },
+  "shell_fastening": {
+    "enabled": true
+  },
+  "mechanical": {
+    "adapter": "anything2robot",
+    "config": "custom_dog.json"
+  },
+  "electrical": {
+    "adapter": "legacy_eagle"
+  },
+  "gravity": {
+    "world_m_s2": [
+      0,
+      0,
+      -9.80665
+    ],
+    "evidence": "Test assumption: uploaded dog is upright along source +Z. No balance/walking certification."
+  },
+  "search": {
+    "max_evaluations": 180,
+    "max_seed_candidates": 480,
+    "seed_pitch_mm": 12,
+    "beam_width": 24,
+    "max_architectures": 28
+  },
+  "components": [
+    {
+      "id": "BATTERY_1",
+      "component_id": "BATTERY",
+      "owner_link": "BODY",
+      "mass_kg": null,
+      "carrier": {
+        "plate_mm": 3,
+        "margin_mm": 3,
+        "ear_width_mm": 12,
+        "dock_depth_mm": 6,
+        "max_anchor_mm": 180
+      },
+      "allowed_rolls_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "envelope": {
+        "size_mm": [
+          132,
+          32,
+          76
+        ],
+        "evidence": "existing conservative planning envelope; physical dimensions and retention unverified; same 132x76x32 envelope, explicit narrow-side carrier local axes (132,32,76), no scaling",
+        "retention": "pending_measured_clamp_or_panel_interface"
+      },
+      "display": {
+        "file": "../assets/electronics/presentation/battery_holder_8aa.ply",
+        "sha256": "10f719a8a6a5f15b13f229141e2ab9247614e276af28c190d719649cbd76b75b",
+        "interface_from_mesh": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            -1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            35.5
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "source_url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/875%208x%20AA%20Battery%20Holder/875%208xAA%20Battery%20Holder.step",
+        "label": "8 AA holder (candidate)",
+        "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+      }
+    },
+    {
+      "id": "REGULATOR_1",
+      "component_id": "REGULATOR",
+      "owner_link": "BODY",
+      "mass_kg": null,
+      "carrier": {
+        "plate_mm": 3,
+        "margin_mm": 3,
+        "ear_width_mm": 12,
+        "dock_depth_mm": 6,
+        "max_anchor_mm": 180
+      },
+      "allowed_rolls_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "mounting": {
+        "definition": "../hardware_catalog/pololu_d24v50f5.json",
+        "registration": {
+          "status": "explicit_candidate",
+          "note": "Canonical hardware frame is placed atomically by the carrier layout search. Physical model/revision and registration require confirmation."
+        },
+        "fastener": {
+          "thread": "M2",
+          "shank_diameter_mm": 2,
+          "length_mm": 6,
+          "head_diameter_mm": 3.6,
+          "head_height_mm": 2,
+          "tool_radius_mm": 2,
+          "boss_diameter_mm": 5.2,
+          "standoff_height_mm": 6,
+          "min_wall_mm": 1,
+          "bottom_mm": 1,
+          "min_engagement_mm": 2,
+          "insert": {
+            "id": "prototype-M2-OD3.2-L4-select-and-calibrate-before-print",
+            "outer_diameter_mm": 3.2,
+            "hole_diameter_mm": 3.0,
+            "length_mm": 4
+          },
+          "process_status": "prototype_uncalibrated"
+        }
+      },
+      "display": {
+        "file": "../assets/electronics/presentation/regulator_d24v50f5.ply",
+        "sha256": "03c488ec90a3492f6f688c91a915d8fae0333e2135a7b2b8c80365861b366f8c",
+        "interface_from_mesh": [
+          [
+            1,
+            0,
+            0,
+            8.89
+          ],
+          [
+            0,
+            1,
+            0,
+            10.16
+          ],
+          [
+            0,
+            0,
+            1,
+            3.2874
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "source_url": "https://www.pololu.com/file/0J1437/d24v50f5-step-down-voltage-regulator.step",
+        "label": "Pololu D24V50F5",
+        "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+      }
+    },
+    {
+      "id": "U1_1",
+      "component_id": "U1",
+      "owner_link": "BODY",
+      "mass_kg": null,
+      "carrier": {
+        "plate_mm": 3,
+        "margin_mm": 3,
+        "ear_width_mm": 12,
+        "dock_depth_mm": 6,
+        "max_anchor_mm": 180
+      },
+      "allowed_rolls_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "mounting": {
+        "definition": "../hardware_catalog/arduino_uno_th_rev3e_footprints.json",
+        "registration": {
+          "status": "explicit_candidate",
+          "note": "Canonical hardware frame is placed atomically by the carrier layout search. Physical model/revision and registration require confirmation."
+        },
+        "hole_ids": [
+          "H1",
+          "H2",
+          "H4"
+        ],
+        "fastener": {
+          "thread": "M2",
+          "shank_diameter_mm": 2,
+          "length_mm": 6,
+          "head_diameter_mm": 3.6,
+          "head_height_mm": 2,
+          "tool_radius_mm": 2,
+          "boss_diameter_mm": 5.2,
+          "standoff_height_mm": 6,
+          "min_wall_mm": 1,
+          "bottom_mm": 1,
+          "min_engagement_mm": 2,
+          "insert": {
+            "id": "prototype-M2-OD3.2-L4-select-and-calibrate-before-print",
+            "outer_diameter_mm": 3.2,
+            "hole_diameter_mm": 3.0,
+            "length_mm": 4
+          },
+          "process_status": "prototype_uncalibrated"
+        }
+      },
+      "display": {
+        "file": "../assets/electronics/presentation/arduino_uno_r3.ply",
+        "sha256": "62f019c1b3160ed4edcfe9b2ad3d8ec2f672c0274f31d41f6028ffda354b6c3e",
+        "interface_from_mesh": [
+          [
+            0,
+            1,
+            0,
+            33.3817419052124
+          ],
+          [
+            -1,
+            0,
+            0,
+            26.67
+          ],
+          [
+            0,
+            0,
+            1,
+            5.365158462734666
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "source_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Arduino/Arduino%20UNO/Arduino%20UNO.FCStd",
+        "label": "Arduino Uno",
+        "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+      }
+    },
+    {
+      "id": "S1_1",
+      "component_id": "S1",
+      "owner_link": "BODY",
+      "mass_kg": null,
+      "carrier": {
+        "plate_mm": 3,
+        "margin_mm": 3,
+        "ear_width_mm": 12,
+        "dock_depth_mm": 6,
+        "max_anchor_mm": 180
+      },
+      "allowed_rolls_deg": [
+        0,
+        90,
+        180,
+        270
+      ],
+      "envelope": {
+        "size_mm": [
+          16,
+          10,
+          12
+        ],
+        "evidence": "existing conservative planning envelope; physical dimensions and retention unverified",
+        "retention": "pending_measured_clamp_or_panel_interface"
+      },
+      "display": {
+        "file": "../assets/electronics/presentation/slide_switch.ply",
+        "sha256": "ed4d0992cd0680dd893ca574512fb12b05ab42f6742a281205314c913af6acf5",
+        "interface_from_mesh": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            4
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "source_url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/805%20slide%20switch/805%20slide%20switch.step",
+        "label": "SPDT switch (candidate)",
+        "registration": "Explicit visual registration; exact board revision, physical retention and CAD collisions remain unverified"
+      }
+    }
+  ],
+  "openings": {
+    "BODY": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.35
+      }
+    ],
+    "HEAD": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.8
+      }
+    ],
+    "L_ARM": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.8
+      }
+    ],
+    "R_ARM": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.8
+      }
+    ],
+    "L_LEG": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.8
+      }
+    ],
+    "R_LEG": [
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "fraction": 0.8
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.5
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.35
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.65
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.2
+      },
+      {
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "fraction": 0.8
+      }
+    ]
+  }
+}

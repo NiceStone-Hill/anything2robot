@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "units": "See individual source model; verify normalization before use",
+  "integration": "CAD converted without rescaling. Individual model viewer and rigid-axis assembly reference available. Existing proxy validation unchanged; candidate CAD placement/collisions/ports are not revalidated.",
+  "sources": [
+    {
+      "name": "Adafruit CAD Parts",
+      "repository": "https://github.com/adafruit/Adafruit_CAD_Parts",
+      "commit": "af042a90c642be09752ebf9d99ba10f84f8daf0b",
+      "license": "MIT",
+      "license_path": "licenses/Adafruit_CAD_Parts_MIT.txt"
+    },
+    {
+      "name": "FreeCAD Parts Library",
+      "repository": "https://github.com/FreeCAD/FreeCAD-library",
+      "commit": "be5e71491051cef75da46831b6fd77c6313cb497",
+      "license": "CC-BY-3.0",
+      "license_path": "licenses/FreeCAD_Parts_Library_CC-BY-3.0.txt"
+    }
+  ],
+  "assets": [
+    {
+      "component": "sg90_servo",
+      "path": "sg90_servo/sg90_servo.step",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electrical%20Parts/Servos/SG-90/Servo-sg90.step",
+      "sha256": "9ad7b12887580bf68135e7bf544f0fc231ab9af988508184c097b1d1c3e7d734",
+      "license": "CC-BY-3.0",
+      "status": "downloaded",
+      "role": "Tinkercad simulator servo reference; NOT the fixed mechanical motor",
+      "bytes": 1503392,
+      "fetched_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electrical%20Parts/Servos/SG-90/Servo-sg90.step"
+    },
+    {
+      "component": "sg90_servo",
+      "path": "sg90_servo/sg90_servo.stl",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electrical%20Parts/Servos/SG-90/Servo-SG90.stl",
+      "sha256": "5bc7ed78a7a10e0507475fe320c9ab9093ae5f6904d7ac627ffab4f9416f665d",
+      "license": "CC-BY-3.0",
+      "status": "downloaded",
+      "role": "Tinkercad simulator servo reference; NOT the fixed mechanical motor",
+      "bytes": 116384,
+      "fetched_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electrical%20Parts/Servos/SG-90/Servo-SG90.stl",
+      "mesh_check": {
+        "vertices": 1165,
+        "faces": 2326,
+        "native_bounds": [
+          [
+            -5.900000095367432,
+            -4.699999809265137,
+            0.0
+          ],
+          [
+            5.900000095367432,
+            27.700000762939453,
+            29.899999618530273
+          ]
+        ],
+        "native_extents": [
+          11.800000190734863,
+          32.40000057220459,
+          29.899999618530273
+        ],
+        "units_verified": false
+      }
+    },
+    {
+      "component": "arduino_uno_r3",
+      "path": "arduino_uno_r3/arduino_uno_r3.FCStd",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Arduino/Arduino%20UNO/Arduino%20UNO.FCStd",
+      "sha256": "aca28665fbaed05a1e2a2a898821982b77fd43353303d7b40e0816641e8d46e2",
+      "license": "CC-BY-3.0",
+      "status": "downloaded",
+      "role": "Community reference; verify board revision and dimensions",
+      "bytes": 8308664,
+      "fetched_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/Electronics%20Parts/Boards/Arduino/Arduino%20UNO/Arduino%20UNO.FCStd"
+    },
+    {
+      "component": "license",
+      "path": "licenses/Adafruit_CAD_Parts_MIT.txt",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/LICENSE",
+      "sha256": "f60436644e066301d4c2e8f1f0674a157b1f60e4fd5586717b99dde255cc18cd",
+      "license": "MIT",
+      "status": "downloaded",
+      "role": "Community reference; verify board revision and dimensions",
+      "bytes": 1076,
+      "fetched_url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/LICENSE"
+    },
+    {
+      "component": "license",
+      "path": "licenses/FreeCAD_Parts_Library_CC-BY-3.0.txt",
+      "url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/LICENSE-Assets",
+      "sha256": "f14f4d7cf4bf40f8f589b6b461a110d849031e2e43958235e018b3763e54b859",
+      "license": "CC-BY-3.0",
+      "status": "downloaded",
+      "role": "Community reference; verify board revision and dimensions",
+      "bytes": 20620,
+      "fetched_url": "https://raw.githubusercontent.com/FreeCAD/FreeCAD-library/be5e71491051cef75da46831b6fd77c6313cb497/LICENSE-Assets"
+    },
+    {
+      "component": "battery_holder_8aa",
+      "path": "battery_holder_8aa/battery_holder_8aa.step",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/875%208x%20AA%20Battery%20Holder/875%208xAA%20Battery%20Holder.step",
+      "license": "MIT",
+      "role": "Candidate Adafruit 875 holder, not the unspecified existing pack. Product 127 x 71 x 19 mm exceeds existing 118 x 65 x 32 mm proxy in two axes; rerun placement before substitution. Cells and plug clearance must be verified.",
+      "product_page": "https://www.adafruit.com/product/875",
+      "status": "downloaded",
+      "sha256": "07302aedfb19e90dd68498b622417e2123a8062569850105eb4c6720659e9600",
+      "bytes": 31258,
+      "fetched_url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/875%208x%20AA%20Battery%20Holder/875%208xAA%20Battery%20Holder.step"
+    },
+    {
+      "component": "slide_switch",
+      "path": "slide_switch/slide_switch.step",
+      "url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/805%20slide%20switch/805%20slide%20switch.step",
+      "license": "MIT",
+      "role": "Candidate Adafruit 805 SPDT switch; exact Eagle source switch manufacturer unknown. Pin pitch, dimensions and current rating must be verified.",
+      "product_page": "https://www.adafruit.com/product/805",
+      "status": "downloaded",
+      "sha256": "192359d794292afb0ccaab33378a2671377e973f2e7fa6e93527f8b6fa5d2a4c",
+      "bytes": 22814,
+      "fetched_url": "https://raw.githubusercontent.com/adafruit/Adafruit_CAD_Parts/af042a90c642be09752ebf9d99ba10f84f8daf0b/805%20slide%20switch/805%20slide%20switch.step"
+    },
+    {
+      "component": "regulator_d24v50f5",
+      "path": "regulator_d24v50f5/d24v50f5.step",
+      "url": "https://www.pololu.com/file/0J1437/d24v50f5-step-down-voltage-regulator.step",
+      "product_page": "https://www.pololu.com/product/2851/resources",
+      "license": "Manufacturer download; redistribution terms not established",
+      "role": "Official D24V50F5 CAD; optional headers and wire clearance require verification",
+      "status": "downloaded",
+      "sha256": "1ae491b0447280613943202f74a5f2e6c53b0e6962b078a7f263601dbd28f8a9",
+      "bytes": 4783952,
+      "fetched_url": "https://www.pololu.com/file/0J1437/d24v50f5-step-down-voltage-regulator.step"
+    }
+  ],
+  "unavailable": [
+    {
+      "component": "fixed_mechanical_motor",
+      "model": "MG4005V2",
+      "status": "No verified freely downloadable exact V2 CAD found; retain original optimized cylinder. SG90 is not a compatible geometry or electrical replacement."
+    }
+  ],
+  "checked_utc": "2026-10-15T05:12:37.399941+00:00"
+}

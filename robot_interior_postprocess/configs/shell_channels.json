@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "settings": {
+    "grid_mm": 2.0,
+    "sample_mm": 0.75,
+    "clearance_mm": 0.25,
+    "depth_mm": 1.0,
+    "min_wall_mm": 1.5,
+    "wall_guard_mm": 0.2,
+    "bend_radius_mm": 4.0,
+    "lead_mm": 5.0,
+    "lay_in_mm": 15.0,
+    "wire_gap_mm": 0.5,
+    "max_grid_cells": 100000,
+    "max_expansions": 20000,
+    "entry_search_radius_mm": 40.0,
+    "entry_candidates": 6,
+    "max_entry_pairs": 16,
+    "max_shortcut_nodes": 48,
+    "max_shortcut_checks": 4000
+  }
+}

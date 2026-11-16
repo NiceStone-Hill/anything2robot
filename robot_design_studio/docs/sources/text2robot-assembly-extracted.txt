@@ -1,0 +1,94 @@
+Assembly Instructions - Text2Robot
+
+Hardware
+
+
+Item / Link                                                                  Quantity
+
+Microcontroller Raspberry Pi 4 Model B                                          1
+
+Battery Povway 5200 mA Lipo 3S 11.1V 50C                                        1
+
+Servo Motor Hiwonder HT D − 45H High Voltage Serial Bus Servo 45 KG             8
+
+DC to DC Power Converter DROK 10A Synchronous Step-Down Voltage                 1
+Regulator DC-DC
+
+PLA Filament Ender PLA 3D Printer PLA Filament 1.75 mm 1KG (2.2 lbs) Spool      1
+PLA White
+
+Motor Controller Hiwonder TTL / USB Debugging Board                             1
+
+LiPo Battery Connector Adapter                                                  1
+
+USB C Cable 3A Fast Charge, USB A to Type C                                     1
+
+12-14 Gauge Wire
+
+
+Equipment & Software
+
+
+Item / Link
+
+Any slicing software (We used Creality Slicer)
+
+Soldering Iron, Solder, Wirestrippers
+
+Access to a 3D Printer (We used a Creality Ender 3)
+
+https://github.com/ethanlipson/PyLX-16A
+Assembly Instructions
+   1. Slice and Print STL Files
+          ○ Slice and print every STL file referenced by the selected robot’s URDF. This
+             includes one baselink (main body), 4 upper legs, and 4 lower legs. Depending on
+             your printer bed size, you may need to split and splice some parts using strong
+             super glue.
+   2. Download and Print Electronics Modules
+          ○ Download the STL files in the STL_Files/Electronics_Modules folder.
+          ○ Slice and print 4 KneeConnectors, 12 MotorCases, and one BatteryBox.
+   3. Assemble Components
+          ○ Snap together the MotorCases, KneeConnectors, and printed robot limbs
+             according to the URDF. Attach the KneeConnectors directly to each foot,
+             following the specified axis orientations.
+          ○ Daisy chain the two servos on each leg together and connect the topmost servo
+             to the Hiwonder Debugging Board.
+   4. Prepare Wiring
+          ○ Cut four 1-foot strips of additional wire. Solder the ground and power of the
+             battery connector adapter into a Y-configuration.
+          ○ Use heat shrink tubing to group together one set of terminals for the Raspberry Pi
+             and one set for the servo board.
+          ○ Connect one Y directly to the ground and power of the servo board. Do not
+             connect the Raspberry Pi directly to the battery as it is only rated for 5V.
+          ○ Connect the second Y to the input of the DC-to-DC power converter. Adjust the
+             potentiometer until the output voltage is 5V with the input battery voltage (11.1V).
+             Carefully check the output voltage with a multimeter to avoid frying the Raspberry
+             Pi.
+   5. Connect Power to Raspberry Pi
+          ○ Cut off the USB-A end of the USBC-to-USB charging cable. Connect the ground
+             and power wires to the outputs of the DC-to-DC power converter.
+          ○ Plug the USB-C terminal into the Raspberry Pi power. See Figure 1 for the final
+             soldered connector.
+   6. Final Assembly
+          ○ Screw the Raspberry Pi, Debugging Board, and DC-to-DC step-down into their
+             respective housings in the BatteryBox. Place the battery into its housing.
+
+Initialization
+   1. Set Up SSH Communication
+         ○ Establish SSH communication with your Raspberry Pi.
+         ○ Install the PyLX-16A repository, which enables remote control of the robot’s
+            servos.
+   2. Center the Servos
+      ○  Run the servo-test.py script to center each servo at 120 degrees, the default
+         position specified by the URDF.
+      ○ Set servo limits to avoid harmful self-collision.
+3. Replay Trained Locomotion Policy
+      ○ Refer to the Sim2Real documentation in the ReadMe file to replay the trained
+         locomotion policy on your assembled robot.
+
+
+
+
+    Figure 1: Soldered T-Connector to two Ys. One powers the servo board, one connects
+                     to the DC step down, and then to the RaspberryPi
+

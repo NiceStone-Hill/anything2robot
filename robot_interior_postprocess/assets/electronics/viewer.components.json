@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "id": "arduino_uno_r3",
+      "visualization": {
+        "mesh": "/home/qinxuan/projects/anything2robot/robot_interior_postprocess/assets/electronics/converted/arduino_uno_r3_preview.ply"
+      }
+    },
+    {
+      "id": "battery_holder_8aa",
+      "visualization": {
+        "mesh": "/home/qinxuan/projects/anything2robot/robot_interior_postprocess/assets/electronics/converted/battery_holder_8aa_preview.ply"
+      }
+    },
+    {
+      "id": "regulator_d24v50f5",
+      "visualization": {
+        "mesh": "/home/qinxuan/projects/anything2robot/robot_interior_postprocess/assets/electronics/converted/regulator_d24v50f5_preview.ply"
+      }
+    },
+    {
+      "id": "slide_switch",
+      "visualization": {
+        "mesh": "/home/qinxuan/projects/anything2robot/robot_interior_postprocess/assets/electronics/converted/slide_switch_preview.ply"
+      }
+    },
+    {
+      "id": "sg90_servo",
+      "visualization": {
+        "mesh": "/home/qinxuan/projects/anything2robot/robot_interior_postprocess/assets/electronics/converted/sg90_servo_preview.ply"
+      }
+    }
+  ]
+}

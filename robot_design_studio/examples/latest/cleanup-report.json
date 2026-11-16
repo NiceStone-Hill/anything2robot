@@ -1,0 +1,532 @@
+{
+  "workspace_compaction": {
+    "projects": 7,
+    "retained_runs": [
+      "run_049dbc67c6a24aa0",
+      "run_0e5afde6035a4dd3",
+      "run_1ff7a83445794354",
+      "run_234149d4c6a845dd",
+      "run_2a65a82381bf466d",
+      "run_363a11af49354b07",
+      "run_368b83faa1bc4742",
+      "run_3cd968518199431f",
+      "run_43733cf4ae0f4f7b",
+      "run_46f4780ed0ee4001",
+      "run_5ad5b7dc44854d3e",
+      "run_5b1ab8924bc74126",
+      "run_64dd04e3f8374ecd",
+      "run_661d5d2959fb4986",
+      "run_6ddec6df72f441f1",
+      "run_6febbb8902a447f0",
+      "run_7ca33ed315894d56",
+      "run_7e1d57206cb64fb9",
+      "run_85912889c51b4d62",
+      "run_8b799f45267142c5",
+      "run_924da91ea9614f2b",
+      "run_b7c1a2da9f084bd1",
+      "run_c88a8862ca0141f3",
+      "run_e120c2fbbe974728",
+      "run_e4fd0ec5196b45d0",
+      "run_f3d0e613aae44a7b"
+    ],
+    "removed_runs": [
+      "run_f5041f42e45c40a5",
+      "run_058e416d0011435c",
+      "run_3cbe95f327394b10",
+      "run_04f41676413d490c",
+      "run_31fa3f362c2b4632",
+      "run_bf84ba7ca5324594",
+      "run_ea5de87c763e4ade",
+      "run_43ec86f2500e4f99",
+      "run_6b77c4fe3ea745b1",
+      "run_ddcd53bf411a4352",
+      "run_978bce6157564a50",
+      "run_2aa072c5f1aa4748",
+      "run_58ad70323bd34fd0",
+      "run_f12bee0869c04f32",
+      "run_18609a40fb984e40",
+      "run_bfccefd4710043ab",
+      "run_cd6cb4616e8c4dfe",
+      "run_dee47a3224984cd9",
+      "run_bc18866bd6a5467c",
+      "run_9cde2b49544544c1",
+      "run_8c0bfbd22d434fd1",
+      "run_23d4d2c6455b4a19",
+      "run_2f8fbf35740d4ebb",
+      "run_69b7104f233e4250",
+      "run_67fddff64f3a41a1",
+      "run_0a74dc603d30411b",
+      "run_b302c1558ad045bc",
+      "run_5afe43ca57fb43ad",
+      "run_2fdd1c228dca4771",
+      "run_12afb9b869384f69",
+      "run_a4f2e2071fde4110",
+      "run_34d11c32b7a54687",
+      "run_d22ee07d16304a8b",
+      "run_c7ca6990983142ff",
+      "run_2334c48d8cfd4f98",
+      "run_d22f0da0074148c7",
+      "run_c17c92c5640848ee",
+      "run_856023a1518b4dff",
+      "run_1ffd96db649a438c",
+      "run_9641e08845af4e10"
+    ],
+    "removed_bytes": 923379814,
+    "applied": true
+  },
+  "removed_generated_directories": [
+    {
+      "path": "robot_design_studio/archives",
+      "bytes": 927297010
+    },
+    {
+      "path": "robot_design_studio/examples",
+      "bytes": 1437401052
+    },
+    {
+      "path": "robot_design_studio/evidence",
+      "bytes": 940884077
+    },
+    {
+      "path": "robot_design_studio/exports",
+      "bytes": 13683269
+    },
+    {
+      "path": "robot_design_studio/docs/history",
+      "bytes": 33496
+    },
+    {
+      "path": "robot_interior_postprocess/backups",
+      "bytes": 70926
+    },
+    {
+      "path": "robot_design_studio/workspace/runs",
+      "bytes": 0
+    },
+    {
+      "path": "robot_design_studio/workspace/articulation_demo_2026_11_15",
+      "bytes": 34776685
+    },
+    {
+      "path": "robot_design_studio/workspace/mechanical_demo_2026_11_15",
+      "bytes": 5055772
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261014_230510_357386",
+      "bytes": 92947064
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_candidate_inspection",
+      "bytes": 85790288
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial3",
+      "bytes": 14000399
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_095414_dJarMo",
+      "bytes": 85736819
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/bundled_harness_cactus_v1",
+      "bytes": 5735519
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_restrict_schema_live",
+      "bytes": 39215439
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261015_190057_420703",
+      "bytes": 99631159
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_all_supports_v1",
+      "bytes": 14309346
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_joint_supports_review",
+      "bytes": 12469042
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_verified_live",
+      "bytes": 37565022
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/full_wiring_20261115T083713207484Z",
+      "bytes": 125854596
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/bundled_harness_cactus_v2",
+      "bytes": 4529274
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/carrier_test_gtocXKHj",
+      "bytes": 44359444
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial1",
+      "bytes": 14000318
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_mounting_verified",
+      "bytes": 12444851
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_interface_supports_final",
+      "bytes": 12032634
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_llm_live",
+      "bytes": 100119061
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_schema_replay",
+      "bytes": 99488749
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_091910_Ontzdd",
+      "bytes": 84262515
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_interface_supports_review",
+      "bytes": 2563196
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_joint_supports_replay_v1",
+      "bytes": 12423154
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channels_system_verified",
+      "bytes": 220699461
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_live_authorized",
+      "bytes": 37562963
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/physical_wiring_cactus_verified",
+      "bytes": 329577
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_vlm_updated",
+      "bytes": 272100
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_review_20261114",
+      "bytes": 54537705
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pcb_mounting_shelf_verified",
+      "bytes": 559539
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_100815_ah8jIA",
+      "bytes": 86937714
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_vlm",
+      "bytes": 14227152
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/custom_dog_assembly_original_openings_failed",
+      "bytes": 59651291
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pico2_full_wiring_20261115",
+      "bytes": 126171483
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_shell_fasteners_final",
+      "bytes": 41598955
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_offline",
+      "bytes": 5776837
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_live",
+      "bytes": 255294
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_085711_U5LmJB",
+      "bytes": 55016223
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_shell_fasteners",
+      "bytes": 41433975
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_shell_access_consistent",
+      "bytes": 43684976
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_joint_supports_live",
+      "bytes": 12490356
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/full_wiring_cactus_v1",
+      "bytes": 635142129
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/physical_wiring_cactus_20261114T122150035784Z",
+      "bytes": 329577
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261015_191928_581453",
+      "bytes": 121351349
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channel_test_iemo52ch",
+      "bytes": 222753121
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly",
+      "bytes": 37272476
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_inner_groove_trial_01",
+      "bytes": 45632387
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_layout_verified_20261114",
+      "bytes": 32772388
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_layout_exact_weld_20261114",
+      "bytes": 32772388
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_offline_v2",
+      "bytes": 11827530
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial5",
+      "bytes": 14043423
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial2",
+      "bytes": 14000498
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_verified",
+      "bytes": 93393087
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/full_wiring_20261114T131408506063Z",
+      "bytes": 143466920
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_vlm_replay",
+      "bytes": 11962668
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial4",
+      "bytes": 14000504
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_generation_process",
+      "bytes": 54995226
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pcb_mounting_demo_final",
+      "bytes": 209727
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_generation_process_verified",
+      "bytes": 55016235
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_094147_Uj2YYz",
+      "bytes": 85362893
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pcb_mounting_demo_ribbed_v2",
+      "bytes": 580096
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial6",
+      "bytes": 37201405
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pcb_mounting_demo_ribbed",
+      "bytes": 209288
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_layout_double_precision_20261114",
+      "bytes": 22591898
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_support_diagnostics_20261027",
+      "bytes": 1888
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_uno_hole_mounts_v1",
+      "bytes": 312
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_real_models",
+      "bytes": 92462471
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channel_test_23qgvk0z",
+      "bytes": 220420359
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261014_222928_270515",
+      "bytes": 55330588
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_trial7",
+      "bytes": 37230841
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/custom_dog_assembly_network_failed",
+      "bytes": 74924363
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_support_test_20261027",
+      "bytes": 12448160
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/bundled_harness_cactus_smooth_colored_v1",
+      "bytes": 5553521
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_shell_fasteners_verified",
+      "bytes": 41594371
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/custom_dog_assembly_all_in_body_failed",
+      "bytes": 62703131
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_101315_qG5iAU",
+      "bytes": 86471661
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_eps",
+      "bytes": 92946837
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/full_wiring_20261114T133917229253Z",
+      "bytes": 147957547
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261014_224659_493718",
+      "bytes": 92462602
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/generation_demo_20261029_102413_gE2jvl",
+      "bytes": 86517779
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_vlm_v1",
+      "bytes": 255114
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channels_final_test",
+      "bytes": 133503748
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channels_cactus_verified",
+      "bytes": 220420316
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_uno_hole_mounts_v3",
+      "bytes": 12835136
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/pcb_mounting_verified",
+      "bytes": 559485
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_review",
+      "bytes": 37264560
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/bundled_harness_cactus_v4",
+      "bytes": 4490610
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/my_cactus_groove_trial",
+      "bytes": 45632965
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_power_included",
+      "bytes": 99984464
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_uno_hole_mounts_v2",
+      "bytes": 12835368
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_vlm_live",
+      "bytes": 11985504
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_layout_trial_20261114",
+      "bytes": 32772256
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_restrict_schema_live_verified",
+      "bytes": 87014531
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_generation_english_cad_verified",
+      "bytes": 84262521
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_uno_mounts_final",
+      "bytes": 13380034
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_pico2_layout_final_20261114",
+      "bytes": 54535661
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/bundled_harness_cactus_v3",
+      "bytes": 0
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_shell_fasteners_trial1",
+      "bytes": 40908477
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/shell_channels_v2_cactus_verified",
+      "bytes": 222753147
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_generation_english_cad",
+      "bytes": 82951412
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261015_191327_601514",
+      "bytes": 99618826
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_partition_offline_review",
+      "bytes": 11886644
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_20261015_022327_722575",
+      "bytes": 98888804
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/layout_test_demo",
+      "bytes": 55328726
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_uno_hole_mounts_v4",
+      "bytes": 13356443
+    },
+    {
+      "path": "robot_interior_postprocess/outputs/cactus_carrier_assembly_raw",
+      "bytes": 44061791
+    }
+  ],
+  "legacy_outputs_kept_for_regression_and_distinct_model": [
+    "cactus",
+    "custom_dog_assembly",
+    "full_wiring_cactus_verified"
+  ]
+}

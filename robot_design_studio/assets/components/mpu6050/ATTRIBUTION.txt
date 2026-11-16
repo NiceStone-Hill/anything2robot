@@ -1,0 +1,5 @@
+MPU6050 reference CAD by Nicola Cugola, original https://grabcad.com/library/mpu6050-1
+Retrieved from usini/usini_kicad_sensors commit e2d03afffcb95ee2b2ff4183b6573658f2684229.
+Repository identifies this 3D model under GrabCAD User Submissions terms, not CC0. Source README retained verbatim.
+Used here as local reference visualization. Physical module identity, accuracy and redistribution rights are unverified; no open-source license is asserted for this mesh.
+Native bounds: 20.5 x 16 x 3 mm, no pin header. No scaling.

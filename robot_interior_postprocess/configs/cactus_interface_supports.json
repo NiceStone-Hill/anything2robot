@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "settings": {
+    "plate_mm": 2.0,
+    "post_radius_mm": 2.0,
+    "embed_mm": 1.0,
+    "seam_keepout_mm": 3.0,
+    "wire_radius_mm": 1.5,
+    "beam_width": 4,
+    "max_options_per_target": 6,
+    "max_faces": 6
+  },
+  "targets": [
+    {
+      "target_id": "BATTERY_1",
+      "owner_link": "base",
+      "templates": [
+        "open_tray",
+        "tray"
+      ]
+    },
+    {
+      "target_id": "REGULATOR_1",
+      "owner_link": "base",
+      "templates": [
+        "hole_standoffs",
+        "ribbed_shelf",
+        "removable_carrier"
+      ],
+      "mounting": {
+        "definition": "../hardware_catalog/pololu_d24v50f5.json",
+        "world_from_interface": [
+          [
+            0,
+            1,
+            0,
+            -13.16
+          ],
+          [
+            -1,
+            0,
+            0,
+            1.39
+          ],
+          [
+            0,
+            0,
+            1,
+            17.7126
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "registration": {
+          "status": "explicit_candidate",
+          "note": "Explicit candidate registration at saved cactus regulator centre (-3,-7.5,21), using source centre (8.89,10.16,3.2874) and declared 90-degree Z rotation. This is not measured hardware registration; no change to saved placement/routing."
+        },
+        "fastener": {
+          "thread": "M2",
+          "shank_diameter_mm": 2,
+          "length_mm": 6,
+          "head_diameter_mm": 3.6,
+          "head_height_mm": 2,
+          "tool_radius_mm": 2,
+          "boss_diameter_mm": 5.2,
+          "standoff_height_mm": 6,
+          "min_wall_mm": 1,
+          "bottom_mm": 1,
+          "min_engagement_mm": 2,
+          "insert": {
+            "id": "prototype-M2-OD3.2-L4-select-and-calibrate-before-print",
+            "outer_diameter_mm": 3.2,
+            "hole_diameter_mm": 3.0,
+            "length_mm": 4
+          },
+          "process_status": "prototype_uncalibrated"
+        }
+      }
+    },
+    {
+      "target_id": "U1_1",
+      "owner_link": "base",
+      "templates": [
+        "ribbed_shelf",
+        "removable_carrier",
+        "hole_standoffs"
+      ],
+      "mounting": {
+        "definition": "../hardware_catalog/arduino_uno_th_rev3e_footprints.json",
+        "world_from_interface": [
+          [
+            1,
+            0,
+            0,
+            -34.29
+          ],
+          [
+            0,
+            1,
+            0,
+            -25.17
+          ],
+          [
+            0,
+            0,
+            1,
+            38.5
+          ],
+          [
+            0,
+            0,
+            0,
+            1
+          ]
+        ],
+        "registration": {
+          "status": "explicit_candidate",
+          "note": "Official Rev3e XY board centre (34.29,26.67) maps to saved U1 centre XY (0,1.5). Underside z=38.5 mm explicitly reserves 4 mm bottom-lead and 20 mm top envelopes within saved world z=[34.5,58.5]. No scaling. H3 is deliberately unused: declared boss/head/tool collide with IOH and ICSP1 footprints. Heights and registration remain candidate assumptions; physical fit pending."
+        },
+        "hole_ids": [
+          "H1",
+          "H2",
+          "H4"
+        ],
+        "fastener": {
+          "thread": "M2",
+          "shank_diameter_mm": 2,
+          "length_mm": 6,
+          "head_diameter_mm": 3.6,
+          "head_height_mm": 2,
+          "tool_radius_mm": 2,
+          "boss_diameter_mm": 5.2,
+          "standoff_height_mm": 6,
+          "min_wall_mm": 1,
+          "bottom_mm": 1,
+          "min_engagement_mm": 2,
+          "insert": {
+            "id": "prototype-M2-OD3.2-L4-select-and-calibrate-before-print",
+            "outer_diameter_mm": 3.2,
+            "hole_diameter_mm": 3.0,
+            "length_mm": 4
+          },
+          "process_status": "prototype_uncalibrated"
+        }
+      }
+    },
+    {
+      "target_id": "S1_1",
+      "owner_link": "base",
+      "templates": [
+        "bearing_pad"
+      ]
+    }
+  ],
+  "existing_supports": []
+}

@@ -1,0 +1,3 @@
+# Runtime and automated tests use Python 3.11+ standard library only.
+# No pip packages required. Actual tested interpreter: evidence/environment.json.
+# Firefox is optional for browser_smoke.py; it is not a server dependency.
