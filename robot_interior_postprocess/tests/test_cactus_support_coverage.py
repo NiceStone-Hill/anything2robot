@@ -2,6 +2,7 @@
 
 from pathlib import Path
 
+import pytest
 import numpy as np
 import trimesh
 from hardware import interface_targets
@@ -36,6 +37,7 @@ def test_hardware_tool_dependencies_reject_reverse_insertion_cycle():
     )
 
 
+@pytest.mark.skipif(not (ROOT / "outputs/cactus/manifest.json").exists(), reason="Generate optional saved cactus output first")
 def test_saved_cactus_generates_all_four_electronic_supports():
     layout = ROOT / "outputs/cactus"
     shells, targets, _, _, sources, _ = read_layout(layout)

@@ -14,12 +14,10 @@ HERE = Path(__file__).resolve().parents[1]
 
 def inputs():
     raw = read(HERE / "tests/fixtures/layout_schema_replay.json")
-    schema = read(HERE / "outputs/cactus/components.json")
-    components = [
-        c
-        for c in schema["components"]
-        if c["id"] in {"U1", "S1", "BATTERY", "REGULATOR"}
-    ]
+    # Only component identities are needed to validate constraint membership;
+    # do not depend on an old generated model folder.
+    components = [{"id": identity, "interfaces": [{"id": port}]} for identity,port in
+                  [("U1", "D10"), ("S1", "P"), ("BATTERY", "+"), ("REGULATOR", "GND")]]
     return raw, components, read(HERE / "configs/cactus.json")
 
 

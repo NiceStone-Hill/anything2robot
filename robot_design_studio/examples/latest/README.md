@@ -1,8 +1,7 @@
 # Latest retained model snapshots
 
-模型数据不进入 Git 历史；在 GitHub 的
-[最新样机项目包](https://github.com/NiceStone-Hill/anything2robot/releases/tag/studio-snapshots-2026-11-17)
-中下载所需项目的 `.tar.gz`。下载本目录的 `index.json` 放在同一个目录用于摘要校验。
+模型数据不进入 Git 历史。项目归档和打印包已在本地准备好，公开上传附件尚待用户确认。
+取得项目 `.tar.gz` 后，将本目录的 `index.json` 放在同一个目录用于摘要校验。
 每个模型/尺寸只保留当前项目；索引中的通过/失败状态保持真实，不把失败候选当成打印包。
 
 | 项目 | 归档文件 |
@@ -15,7 +14,7 @@
 | 06 · 仙人掌 220 mm | `project_dd7369c54a73411a.tar.gz` |
 | 06 · 仙人掌 230 mm | `project_6b1e78d10baa4c67.tar.gz` |
 
-只需打印 25 cm 样机时，下载同一附件列表中的 `cactus-250mm-prototype-print.zip`。
+只需打印 25 cm 样机时，使用准备好的 `cactus-250mm-prototype-print.zip`。
 其 13 件 STL 已验证闭合、连通、mm 单位并放到打印平面。十字舵臂的尺寸未实测，
 还没有电源线出线缺口，线束与上电未验证；不是实物制造放行。
 
